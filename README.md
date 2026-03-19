@@ -1,147 +1,114 @@
-# Portfólio Acadêmico - Rafael Melo
+# Personal Portfolio
+Academic portfolio built with Next.js, Tailwind CSS, and Lucide React, showcasing my academic profile as a Mechatronics Engineering student at Unicamp.
 
-Portfólio acadêmico desenvolvido com Next.js, Tailwind CSS e Lucide React, apresentando o meu perfil acadêmico enquanto estudante de Engenharia Mecatrônica na Unicamp.
+## 🚀 Technologies Used
+- **Next.js 14** - React framework for production
+- **Tailwind CSS** - Utility-first CSS framework
+- **Lucide React** - Modern icon library
+- **TypeScript** - Static typing for JavaScript
 
-## 🚀 Tecnologias Utilizadas
+## 📋 Prerequisites
+Before getting started, make sure you have installed:
+- [Node.js](https://nodejs.org/) (version 18 or higher)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
-- **Next.js 14** - Framework React para produção
-- **Tailwind CSS** - Framework CSS utilitário
-- **Lucide React** - Biblioteca de ícones moderna
-- **TypeScript** - Tipagem estática para JavaScript
+## 🛠️ Installation and Setup
 
-## 📋 Pré-requisitos
-
-Antes de começar, certifique-se de ter instalado:
-
-- [Node.js](https://nodejs.org/) (versão 18 ou superior)
-- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
-
-## 🛠️ Instalação e Configuração
-
-### 1. Instalar Dependências
-
-Abra o terminal na pasta do projeto e execute:
-
+### 1. Install Dependencies
+Open a terminal in the project folder and run:
 ```bash
 npm install
 ```
-
-ou
-
+or
 ```bash
 yarn install
 ```
-
-Este comando instalará todas as dependências necessárias, incluindo:
+This will install all required dependencies, including:
 - Next.js
-- React e React DOM
-- Tailwind CSS e suas dependências (PostCSS, Autoprefixer)
+- React and React DOM
+- Tailwind CSS and its dependencies (PostCSS, Autoprefixer)
 - Lucide React
-- TypeScript e tipos
+- TypeScript and type definitions
 
-### 2. Executar o Projeto em Modo de Desenvolvimento
-
-Após instalar as dependências, execute:
-
+### 2. Run the Project in Development Mode
+After installing the dependencies, run:
 ```bash
 npm run dev
 ```
-
-ou
-
+or
 ```bash
 yarn dev
 ```
+The project will be available at [http://localhost:3000](http://localhost:3000)
 
-O projeto estará disponível em [http://localhost:3000](http://localhost:3000)
-
-### 3. Build para Produção
-
-Para criar uma versão otimizada para produção:
-
+### 3. Production Build
+To create an optimized production build:
 ```bash
 npm run build
 ```
-
-E para executar a versão de produção:
-
+And to run the production version:
 ```bash
 npm start
 ```
 
-## 📁 Estrutura do Projeto
-
+## 📁 Project Structure
 ```
 Portfolio1/
 ├── app/
-│   ├── layout.tsx       # Layout principal da aplicação
-│   ├── page.tsx         # Página principal (portfólio)
-│   └── globals.css      # Estilos globais com Tailwind
-├── public/              # Arquivos estáticos (se necessário)
-├── package.json         # Dependências do projeto
-├── tailwind.config.js   # Configuração do Tailwind CSS
-├── postcss.config.js    # Configuração do PostCSS
-├── tsconfig.json        # Configuração do TypeScript
-└── next.config.js       # Configuração do Next.js
+│   ├── layout.tsx       # Main application layout
+│   ├── page.tsx         # Main page (portfolio)
+│   └── globals.css      # Global styles with Tailwind
+├── public/              # Static files (if needed)
+├── package.json         # Project dependencies
+├── tailwind.config.js   # Tailwind CSS configuration
+├── postcss.config.js    # PostCSS configuration
+├── tsconfig.json        # TypeScript configuration
+└── next.config.js       # Next.js configuration
 ```
 
-## 🎨 Personalização
+## 🎨 Customization
 
-### Cores e Tema
+### Colors and Theme
+The elegant dark theme uses Tailwind's Slate palette. To customize the colors, edit the `app/page.tsx` file and update the Tailwind CSS classes.
 
-O tema dark elegante utiliza a paleta Slate do Tailwind. Para personalizar as cores, edite o arquivo `app/page.tsx` e altere as classes do Tailwind CSS.
+### Content
+The main content is located in `app/page.tsx`. You can edit:
+- Personal information in the Hero section
+- Contact links (LinkedIn and Email)
+- Experience and education
+- Projects and their descriptions
+- Skills and technologies
 
-### Conteúdo
-
-O conteúdo principal está localizado no arquivo `app/page.tsx`. Você pode editar:
-- Informações pessoais na seção Hero
-- Links de contato (LinkedIn e E-mail)
-- Experiências e educação
-- Projetos e suas descrições
-- Habilidades e tecnologias
-
-## 📱 Responsividade
-
-O design é totalmente responsivo e otimizado para:
-- Dispositivos móveis (smartphones)
+## 📱 Responsiveness
+The design is fully responsive and optimized for:
+- Mobile devices (smartphones)
 - Tablets
 - Desktops
 
-## 🔧 Configuração do Tailwind CSS
+## 🔧 Tailwind CSS Configuration
+Tailwind CSS is already configured and working. The configuration is in `tailwind.config.js` and the global styles are in `app/globals.css`.
 
-O Tailwind CSS já está configurado e funcionando. A configuração está em `tailwind.config.js` e os estilos globais estão em `app/globals.css`.
+If you need to add new classes or further customize the styles, refer to the [Tailwind CSS documentation](https://tailwindcss.com/docs).
 
-Se você precisar adicionar novas classes ou personalizar ainda mais, consulte a [documentação do Tailwind CSS](https://tailwindcss.com/docs).
+## 📝 Available Scripts
+- `npm run dev` - Starts the development server
+- `npm run build` - Creates the production build
+- `npm start` - Starts the production server
+- `npm run lint` - Runs the ESLint linter
 
-## 📝 Scripts Disponíveis
-
-- `npm run dev` - Inicia o servidor de desenvolvimento
-- `npm run build` - Cria o build de produção
-- `npm start` - Inicia o servidor de produção
-- `npm run lint` - Executa o linter do ESLint
-
-## 🌐 Deploy
-
-Este projeto pode ser facilmente implantado em plataformas como:
-- [Vercel](https://vercel.com/) (recomendado para Next.js)
+## 🌐 Deployment
+This project can be easily deployed on platforms such as:
+- [Vercel](https://vercel.com/) (recommended for Next.js)
 - [Netlify](https://www.netlify.com/)
-- Qualquer servidor que suporte Node.js
+- Any server that supports Node.js
 
-## 📄 Licença
+## 📄 License
+This is a personal and academic project.
 
-Este projeto é pessoal e acadêmico.
-
-## 👤 Autor
-
+## 👤 Author
 **Rafael Melo**
-- E-mail: rafaelrpm10@gmail.com
+- Email: rafaelrpm10@gmail.com
 - LinkedIn: [Rafael Melo](https://www.linkedin.com/in/rafael-rodrigues-pimentel-de-melo-9588a02b3/)
 
 ---
-
-Desenvolvido com ❤️ usando Next.js e Tailwind CSS
-
-
-
-
-
+Built with ❤️ using Next.js and Tailwind CSS
