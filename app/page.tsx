@@ -1,9 +1,9 @@
 'use client'
-import { useState, useEffect, useRef, useMemo } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import {
   Linkedin, Mail, Download, GraduationCap, Briefcase, Code,
-  Brain, Users, BookOpen, Award, Menu, X, Globe, FileText,
+  Brain, Users, BookOpen, Award, Menu, X, Globe, FileText, Github,
 } from 'lucide-react'
 
 // ── Types & helpers ───────────────────────────────────────────────────────────
@@ -45,16 +45,15 @@ const TYPED_ROLES: Record<Lang, string[]> = {
 }
 
 const BIO: B = {
-  en: 'Mechatronics Engineering student at Unicamp (Top 2 in class, GPA 3.6), conducting NVIDIA-supported research in Computer Vision & Diffusion Models. Currently on a research exchange in Czech Republic building a 3D Vision System for an Autonomous Mars Rover. President of Unicamp\'s Entrepreneurship League, managing 30 people and impacting 1,500+ students.',
-  pt: 'Estudante de Engenharia Mecatrônica na Unicamp (Top 2 da turma, GPA 3,6), conduzindo pesquisa apoiada pela NVIDIA em Visão Computacional e Modelos de Difusão. Atualmente em intercâmbio na República Tcheca desenvolvendo um Sistema de Visão 3D para um Rover em Marte. Presidente da Liga Empreendedora da Unicamp, gerenciando 30 pessoas e impactando mais de 1.500 estudantes.',
+  en: 'Mechatronics Engineering student at Unicamp (Top 2 in class, GPA 3.6). Participated in 5 research projects — including NVIDIA-supported research in Diffusion Models, a visiting researcher exchange in Czech Republic, and a published journal article on Remote Sensing. President of Unicamp\'s Entrepreneurship League, impacting 2,000+ students.',
+  pt: 'Estudante de Engenharia Mecatrônica na Unicamp (Top 2 da turma, GPA 3,6). Participou de 5 projetos de pesquisa — incluindo pesquisa apoiada pela NVIDIA em Modelos de Difusão, intercâmbio de pesquisador visitante na República Tcheca, e artigo publicado em periódico internacional de Sensoriamento Remoto. Presidente da Liga Empreendedora da Unicamp, impactando mais de 2.000 estudantes.',
 }
 
 const STATS = [
-  { label: { en: 'Students Impacted', pt: 'Estudantes Impactados' }, value: 1500, suffix: '+' },
-  { label: { en: 'Social Media Views', pt: 'Visualizações' }, value: 400, suffix: 'k+' },
+  { label: { en: 'Students Impacted', pt: 'Estudantes Impactados' }, value: 2000, suffix: '+' },
+  { label: { en: 'Research Projects', pt: 'Projetos de Pesquisa' }, value: 5, suffix: '' },
   { label: { en: 'Scientific Papers', pt: 'Artigos Científicos' }, value: 2, suffix: '' },
   { label: { en: 'Books Published', pt: 'Livros Publicados' }, value: 3, suffix: '' },
-  { label: { en: 'People Led', pt: 'Pessoas Lideradas' }, value: 30, suffix: '' },
 ]
 
 interface Exp {
@@ -77,7 +76,7 @@ const EXPERIENCES: Exp[] = [
   {
     id: 'west-bohemia',
     type: 'professional',
-    period: { en: 'Jan 2026 – Present', pt: 'Jan 2026 – Presente' },
+    period: { en: 'Jan 2026 – Mar 2026', pt: 'Jan 2026 – Mar 2026' },
     org: 'University of West Bohemia',
     location: 'Plzeň, Czech Republic',
     role: { en: 'Exchange Visiting Researcher', pt: 'Pesquisador Visitante em Intercâmbio' },
@@ -86,14 +85,14 @@ const EXPERIENCES: Exp[] = [
       pt: 'Sistema de Visão 3D para Rover Autônomo em Marte (European Rover Challenge)',
     },
     description: {
-      en: 'Selected for a merit-based two-month exchange program focusing on robotics and computer vision. Developed the 3D Vision System for an Autonomous Mars Rover to compete in the European Rover Challenge (ERC), utilizing image processing and spatial awareness algorithms. The project resulted in 2 scientific papers submitted to international academic journals.',
-      pt: 'Selecionado para programa de intercâmbio de dois meses com base em mérito, com foco em robótica e visão computacional. Desenvolveu o Sistema de Visão 3D para um Rover Autônomo em Marte para o European Rover Challenge (ERC). Resultou em 2 artigos científicos submetidos a periódicos internacionais.',
+      en: 'Selected for a merit-based two-month exchange program (ended Mar 14, 2026) focusing on robotics and computer vision. Developed the 3D Vision System for an Autonomous Mars Rover to compete in the European Rover Challenge (ERC), utilizing image processing and spatial awareness algorithms. The project resulted in 2 scientific papers submitted to international academic journals.',
+      pt: 'Selecionado para programa de intercâmbio de dois meses com base em mérito (encerrado em 14 de março de 2026) com foco em robótica e visão computacional. Desenvolveu o Sistema de Visão 3D para um Rover Autônomo em Marte para o European Rover Challenge (ERC). Resultou em 2 artigos científicos submetidos a periódicos internacionais.',
     },
     tags: ['Computer Vision', '3D Vision', 'Robotics', 'Python', 'Image Processing'],
     iconName: 'Globe',
     dotColor: 'border-cyan-400',
     iconColor: 'text-cyan-400',
-    isCurrent: true,
+    isCurrent: false,
   },
   {
     id: 'nvidia-lids',
@@ -124,8 +123,8 @@ const EXPERIENCES: Exp[] = [
     location: 'Campinas, Brazil',
     role: { en: 'President', pt: 'Presidente' },
     description: {
-      en: "Manage a 30-person team developing startups and products to enhance the university's entrepreneurial ecosystem. Impacted 1,500+ students and achieved 400k+ social media views. Interact with Brazil's most influential entrepreneurs and C-suite executives, receiving individualized mentorship. Partners: Itaú, XP, Nubank, Fundação Estudar, Kaszek Ventures, Atlantico VC.",
-      pt: 'Gerencia equipe de 30 pessoas desenvolvendo startups e produtos para o ecossistema empreendedor da Unicamp. Impactou mais de 1.500 estudantes e alcançou mais de 400k visualizações. Parceiros: Itaú, XP, Nubank, Fundação Estudar, Kaszek Ventures, Atlantico VC.',
+      en: "Manage a 30-person team developing startups and products to enhance the university's entrepreneurial ecosystem. Impacted 2,000+ students. Interact with Brazil's most influential entrepreneurs and C-suite executives, receiving individualized mentorship and organizing high-impact events. Partners: Itaú, XP, Nubank, Fundação Estudar, Kaszek Ventures, Atlantico VC.",
+      pt: 'Gerencia equipe de 30 pessoas desenvolvendo startups e produtos para o ecossistema empreendedor da Unicamp. Impactou mais de 2.000 estudantes. Parceiros: Itaú, XP, Nubank, Fundação Estudar, Kaszek Ventures, Atlantico VC.',
     },
     tags: ['Leadership', 'Entrepreneurship', 'Startups', 'Team Management'],
     iconName: 'Users',
@@ -153,6 +152,27 @@ const EXPERIENCES: Exp[] = [
     dotColor: 'border-blue-400',
     iconColor: 'text-blue-400',
     isCurrent: true,
+  },
+  {
+    id: 'remote-sensing',
+    type: 'professional',
+    period: { en: '2025 – May 2026', pt: '2025 – Mai 2026' },
+    org: 'Geomatics and Natural Hazards & Risk – International Journal',
+    location: 'Brazil',
+    role: { en: 'Researcher – Remote Sensing & Environmental Monitoring', pt: 'Pesquisador – Sensoriamento Remoto e Monitoramento Ambiental' },
+    project: {
+      en: 'Flood-pulse confounding in wetland disturbance monitoring: Pantanal (2020–2025)',
+      pt: 'Confusão de pulso de inundação no monitoramento de perturbação em zonas úmidas: Pantanal (2020–2025)',
+    },
+    description: {
+      en: 'Published article in Geomatics and Natural Hazards & Risk (May 2026): "A reproducible regime-aware unsupervised framework to reduce flood-pulse confounding in wetland disturbance monitoring: Pantanal (2020–2025)". Research applying remote sensing and unsupervised machine learning to monitor environmental disturbances in the world\'s largest tropical wetland.',
+      pt: 'Artigo publicado no Geomatics and Natural Hazards & Risk (Mai 2026): "A reproducible regime-aware unsupervised framework to reduce flood-pulse confounding in wetland disturbance monitoring: Pantanal (2020–2025)". Pesquisa aplicando sensoriamento remoto e machine learning não supervisionado para monitorar perturbações ambientais na maior área úmida tropical do mundo.',
+    },
+    tags: ['Remote Sensing', 'Environmental Monitoring', 'Unsupervised ML', 'Python', 'Pantanal'],
+    iconName: 'FileText',
+    dotColor: 'border-emerald-400',
+    iconColor: 'text-emerald-400',
+    isCurrent: false,
   },
   {
     id: 'eracing',
@@ -278,7 +298,7 @@ const PROJECTS = [
     github: null as string | null,
     iconName: 'Brain',
     iconColor: 'text-green-400',
-    images: ['/projects/scientific-initiation/image1.jpg', '/projects/scientific-initiation/image2.jpg'],
+    images: [] as string[],
   },
   {
     id: 'autonomous-perception',
@@ -304,7 +324,7 @@ const PROJECTS = [
     github: null as string | null,
     iconName: 'Code',
     iconColor: 'text-blue-400',
-    images: [] as string[],
+    images: ['/projects/scientific-initiation/image1.jpg', '/projects/scientific-initiation/image2.jpg'],
   },
   {
     id: 'rubiks',
@@ -412,7 +432,7 @@ const NOTES = [
 
 const DEVICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/'
 
-const ICONS = { Brain, Briefcase, Users, BookOpen, Award, Code, Globe, GraduationCap, FileText }
+const ICONS = { Brain, Briefcase, Users, BookOpen, Award, Code, Globe, GraduationCap, FileText, Github }
 
 // ── Components ────────────────────────────────────────────────────────────────
 
@@ -532,17 +552,11 @@ export default function Home() {
   const [lang, setLang] = useState<Lang>('en')
   const [mobileOpen, setMobileOpen] = useState(false)
   const [expanded, setExpanded] = useState<Record<string, boolean>>({})
-  const [expFilter, setExpFilter] = useState<'all' | 'professional' | 'volunteer'>('all')
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => { const t = setTimeout(() => setMounted(true), 80); return () => clearTimeout(t) }, [])
 
   const toggle = (id: string) => setExpanded(p => ({ ...p, [id]: !p[id] }))
-
-  const filteredExps = useMemo(
-    () => expFilter === 'all' ? EXPERIENCES : EXPERIENCES.filter(e => e.type === expFilter),
-    [expFilter]
-  )
 
   const hero = (delay: number): React.CSSProperties => ({
     opacity: mounted ? 1 : 0,
@@ -624,6 +638,7 @@ export default function Home() {
                 <div className="relative w-14 h-14 md:w-16 md:h-16 flex-shrink-0">
                   <Image src="/unicamp-logo.png" alt="Unicamp" fill className="object-contain" />
                 </div>
+                <span className="text-3xl md:text-4xl select-none" title="Brazil">🇧🇷</span>
               </div>
 
               <div style={hero(200)}><TypeWriter lang={lang} /></div>
@@ -633,9 +648,13 @@ export default function Home() {
               </div>
 
               <div style={hero(420)} className="flex flex-wrap gap-3 mt-5 justify-center md:justify-start">
-                <a href="https://www.linkedin.com/in/rafael-pimentel-9588a02b3" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.linkedin.com/in/rafael-rodrigues-pimentel-de-melo-9588a02b3/" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-cyan-500/50 rounded-lg text-slate-200 text-sm transition-all">
                   <Linkedin className="w-4 h-4 text-cyan-400" /> LinkedIn
+                </a>
+                <a href="https://github.com/Raf-Pimentel" target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-cyan-500/50 rounded-lg text-slate-200 text-sm transition-all">
+                  <Github className="w-4 h-4 text-cyan-400" /> GitHub
                 </a>
                 <a href="mailto:rafaelrpm10@gmail.com"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-cyan-500/50 rounded-lg text-slate-200 text-sm transition-all">
@@ -654,7 +673,7 @@ export default function Home() {
       {/* ── Stats Banner ── */}
       <section className="border-y border-slate-800 bg-slate-900/40">
         <div className="container mx-auto px-4 py-8 max-w-5xl">
-          <div className="grid grid-cols-3 md:grid-cols-5 gap-6 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {STATS.map((s, i) => (
               <Reveal key={s.label.en} delay={i * 80}>
                 <div className="flex flex-col items-center gap-1">
@@ -676,29 +695,6 @@ export default function Home() {
             <h2 className="text-4xl font-bold">{lang === 'en' ? 'Experience' : 'Experiência'}</h2>
           </Reveal>
 
-          {/* Filter tabs */}
-          <Reveal delay={80} className="flex justify-center mb-10">
-            <div className="flex gap-1 p-1 bg-slate-900 border border-slate-800 rounded-xl">
-              {(['all', 'professional', 'volunteer'] as const).map(f => (
-                <button
-                  key={f}
-                  onClick={() => setExpFilter(f)}
-                  className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-all ${
-                    expFilter === f
-                      ? 'bg-cyan-600 text-white shadow'
-                      : 'text-slate-400 hover:text-slate-200'
-                  }`}
-                >
-                  {f === 'all'
-                    ? (lang === 'en' ? 'All' : 'Todos')
-                    : f === 'professional'
-                    ? (lang === 'en' ? 'Professional' : 'Profissional')
-                    : (lang === 'en' ? 'Volunteer' : 'Voluntário')}
-                </button>
-              ))}
-            </div>
-          </Reveal>
-
           {/* Timeline */}
           <div className="relative">
             <div
@@ -706,7 +702,7 @@ export default function Home() {
               style={{ background: 'linear-gradient(to bottom, #06b6d4, #3b82f6, #8b5cf6, #10b981, #f59e0b)' }}
             />
             <div className="space-y-6">
-              {filteredExps.map((exp, i) => {
+              {EXPERIENCES.map((exp, i) => {
                 const Icon = ICONS[exp.iconName as keyof typeof ICONS] ?? Code
                 return (
                   <Reveal key={exp.id} delay={i * 70} className="relative flex gap-5">
@@ -839,6 +835,30 @@ export default function Home() {
                   </ul>
                 </div>
               </div>
+            </div>
+          </Reveal>
+          <Reveal delay={180} className="mt-5">
+            <div className="bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-slate-700 transition-colors">
+              <div className="flex flex-wrap items-start justify-between gap-4 mb-3">
+                <div className="flex items-center gap-3">
+                  <Globe className="w-6 h-6 text-cyan-400 flex-shrink-0" />
+                  <div>
+                    <h3 className="text-xl font-semibold">
+                      {lang === 'en' ? 'Visiting Student – Exchange Program' : 'Estudante Visitante – Programa de Intercâmbio'}
+                    </h3>
+                    <p className="text-slate-400 text-sm mt-0.5">University of West Bohemia — Plzeň, Czech Republic</p>
+                  </div>
+                </div>
+                <span className="px-3 py-1 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold rounded-full">
+                  {lang === 'en' ? 'Merit-Based' : 'Por Mérito'}
+                </span>
+              </div>
+              <span className="text-xs font-mono text-slate-500">Jan 2026 – Mar 2026</span>
+              <p className="text-slate-400 text-sm mt-3 leading-relaxed">
+                {lang === 'en'
+                  ? 'Selected for a two-month merit-based exchange focusing on robotics and computer vision. Developed a 3D Vision System for an Autonomous Mars Rover for the European Rover Challenge (ERC), resulting in 2 scientific papers submitted to international journals.'
+                  : 'Selecionado para intercâmbio de dois meses com base em mérito, com foco em robótica e visão computacional. Desenvolveu um Sistema de Visão 3D para um Rover Autônomo em Marte para o European Rover Challenge (ERC), resultando em 2 artigos científicos submetidos.'}
+              </p>
             </div>
           </Reveal>
         </div>
@@ -992,6 +1012,34 @@ export default function Home() {
           <Reveal className="text-center mb-12">
             <h2 className="text-4xl font-bold">{lang === 'en' ? 'Awards & Achievements' : 'Prêmios & Conquistas'}</h2>
           </Reveal>
+          {/* Publication highlight */}
+          <Reveal delay={80} className="mb-5">
+            <div className="bg-gradient-to-r from-cyan-950/60 to-slate-900 border border-cyan-500/40 rounded-xl p-6 hover:border-cyan-500/70 transition-colors">
+              <div className="flex flex-wrap items-start gap-4">
+                <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/30">
+                  <FileText className="w-6 h-6 text-cyan-400" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-2 mb-1">
+                    <span className="px-2 py-0.5 bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-xs font-bold rounded uppercase tracking-wider">
+                      {lang === 'en' ? 'Published · May 2026' : 'Publicado · Mai 2026'}
+                    </span>
+                    <span className="text-slate-500 text-xs">Geomatics, Natural Hazards and Risk</span>
+                  </div>
+                  <h3 className="text-base font-semibold text-white leading-snug mb-2">
+                    {lang === 'en'
+                      ? 'A reproducible regime-aware unsupervised framework to reduce flood-pulse confounding in wetland disturbance monitoring: Pantanal (2020–2025)'
+                      : 'Um framework reproduzível baseado em regimes não-supervisionados para reduzir confundimento de pulso de inundação no monitoramento de distúrbios em zonas úmidas: Pantanal (2020–2025)'}
+                  </h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">
+                    {lang === 'en'
+                      ? 'Applied remote sensing and unsupervised machine learning to monitor environmental disturbances in the Pantanal — the world\'s largest tropical wetland — using satellite time-series data from 2020 to 2025.'
+                      : 'Aplicou sensoriamento remoto e aprendizado de máquina não-supervisionado para monitorar distúrbios ambientais no Pantanal usando séries temporais de satélites de 2020 a 2025.'}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
           <div className="grid md:grid-cols-2 gap-5">
             {[
               {
@@ -1048,13 +1096,17 @@ export default function Home() {
                   : 'Fique à vontade para entrar em contato — estou sempre aberto a colaborações em pesquisa, projetos interessantes ou uma boa conversa.'}
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <a href="https://www.linkedin.com/in/rafael-pimentel-9588a02b3" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.linkedin.com/in/rafael-rodrigues-pimentel-de-melo-9588a02b3/" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-cyan-500/50 rounded-lg text-slate-100 transition-all">
                   <Linkedin className="w-5 h-5 text-cyan-400" /> LinkedIn
                 </a>
                 <a href="mailto:rafaelrpm10@gmail.com"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-cyan-500/50 rounded-lg text-slate-100 transition-all">
                   <Mail className="w-5 h-5 text-cyan-400" /> rafaelrpm10@gmail.com
+                </a>
+                <a href="https://github.com/Raf-Pimentel" target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-cyan-500/50 rounded-lg text-slate-100 transition-all">
+                  <Github className="w-5 h-5 text-cyan-400" /> GitHub
                 </a>
                 <a href="/cv.pdf" download
                   className="inline-flex items-center gap-2 px-6 py-3 bg-cyan-600 hover:bg-cyan-500 border border-cyan-500 rounded-lg text-white transition-all shadow-lg shadow-cyan-900/20">
@@ -1071,11 +1123,14 @@ export default function Home() {
         <div className="container mx-auto px-4 max-w-6xl flex flex-col md:flex-row items-center justify-between gap-4 text-slate-500 text-sm">
           <p>© 2025 Rafael Melo · Campinas, SP, Brazil</p>
           <div className="flex gap-5">
-            <a href="https://www.linkedin.com/in/rafael-pimentel-9588a02b3" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors flex items-center gap-1">
+            <a href="https://www.linkedin.com/in/rafael-rodrigues-pimentel-de-melo-9588a02b3/" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors flex items-center gap-1">
               <Linkedin className="w-4 h-4" /> LinkedIn
             </a>
             <a href="mailto:rafaelrpm10@gmail.com" className="hover:text-cyan-400 transition-colors flex items-center gap-1">
               <Mail className="w-4 h-4" /> Email
+            </a>
+            <a href="https://github.com/Raf-Pimentel" target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400 transition-colors flex items-center gap-1">
+              <Github className="w-4 h-4" /> GitHub
             </a>
           </div>
         </div>
