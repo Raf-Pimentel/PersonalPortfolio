@@ -11,6 +11,10 @@ module.exports = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
       },
+      animation: {
+        'spin-slow': 'spin 8s linear infinite',
+        'blink': 'cursor-blink 1s step-end infinite',
+      },
     },
   },
   plugins: [],
