@@ -616,16 +616,92 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-3 gap-10 items-center">
 
-            {/* Photo with rotating ring */}
+            {/* Photo – portrait card */}
             <div className="md:col-span-1 flex justify-center" style={hero(0)}>
-              <div className="relative w-60 h-60 md:w-72 md:h-72">
+              <div className="relative mt-2 mb-10 md:mb-0">
+
+                {/* Ambient glow bloom */}
                 <div
-                  className="absolute inset-0 rounded-full animate-spin-slow"
-                  style={{ background: 'conic-gradient(from 0deg, #06b6d4, #3b82f6, #8b5cf6, transparent 55%, #06b6d4)' }}
+                  className="absolute pointer-events-none"
+                  style={{
+                    inset: '-40px',
+                    background: 'radial-gradient(ellipse at 50% 42%, rgba(6,182,212,0.22) 0%, rgba(99,102,241,0.13) 42%, transparent 68%)',
+                    filter: 'blur(22px)',
+                  }}
                 />
-                <div className="absolute rounded-full overflow-hidden bg-slate-950" style={{ inset: '3px' }}>
-                  <Image src="/profile-photo.jpg" alt="Rafael Melo" fill className="object-cover" priority />
+
+                {/* Gradient border frame */}
+                <div
+                  className="relative rounded-2xl p-[2px]"
+                  style={{ background: 'linear-gradient(148deg, #22d3ee 0%, #6366f1 52%, #a855f7 100%)' }}
+                >
+                  {/* Photo */}
+                  <div className="relative w-52 md:w-60 h-[277px] md:h-80 rounded-[14px] overflow-hidden bg-slate-950">
+                    <Image
+                      src="/profile-photo.jpg"
+                      alt="Rafael Melo"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                    {/* Subtle vignette at bottom */}
+                    <div
+                      className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
+                      style={{ background: 'linear-gradient(to top, rgba(10,14,26,0.32) 0%, transparent 100%)' }}
+                    />
+                  </div>
                 </div>
+
+                {/* Bracket corner accents */}
+                <div className="absolute -top-[7px] -left-[7px] w-5 h-5 border-t-2 border-l-2 border-cyan-400/65 pointer-events-none" />
+                <div className="absolute -top-[7px] -right-[7px] w-5 h-5 border-t-2 border-r-2 border-cyan-400/65 pointer-events-none" />
+                <div className="absolute -bottom-[7px] -left-[7px] w-5 h-5 border-b-2 border-l-2 border-violet-400/65 pointer-events-none" />
+                <div className="absolute -bottom-[7px] -right-[7px] w-5 h-5 border-b-2 border-r-2 border-violet-400/65 pointer-events-none" />
+
+                {/* Status badge */}
+                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap z-10">
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-full shadow-xl">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
+                    <span className="text-[11px] font-medium text-slate-300">
+                      {lang === 'en' ? 'Open to research' : 'Aberto a pesquisa'}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Floating chip — NVIDIA (right, desktop only) */}
+                <div
+                  className="hidden md:flex absolute -right-[68px] top-8 items-center gap-2 px-2.5 py-2 rounded-xl"
+                  style={{
+                    background: 'rgba(10,14,26,0.93)',
+                    border: '1px solid rgba(34,197,94,0.28)',
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.45)',
+                  }}
+                >
+                  <div className="w-2 h-2 rounded-full bg-green-400 flex-shrink-0" />
+                  <div>
+                    <div className="text-[11px] font-bold text-green-400 leading-none">NVIDIA</div>
+                    <div className="text-[9px] text-slate-500 leading-none mt-0.5">Research</div>
+                  </div>
+                </div>
+
+                {/* Floating chip — Top 2 (left, desktop only) */}
+                <div
+                  className="hidden md:flex absolute -left-[62px] bottom-14 items-center gap-2 px-2.5 py-2 rounded-xl"
+                  style={{
+                    background: 'rgba(10,14,26,0.93)',
+                    border: '1px solid rgba(251,191,36,0.28)',
+                    backdropFilter: 'blur(10px)',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.45)',
+                  }}
+                >
+                  <span className="text-xs flex-shrink-0">🏆</span>
+                  <div>
+                    <div className="text-[11px] font-bold text-amber-400 leading-none">Top 2</div>
+                    <div className="text-[9px] text-slate-500 leading-none mt-0.5">Unicamp</div>
+                  </div>
+                </div>
+
               </div>
             </div>
 
