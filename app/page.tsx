@@ -614,7 +614,7 @@ export default function Home() {
       {/* ── Splash ── */}
       <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
         <Image
-          src="/profile-photo2.png"
+          src="/profile-photo3.png"
           alt="Rafael Melo"
           fill
           className="object-cover object-center"
