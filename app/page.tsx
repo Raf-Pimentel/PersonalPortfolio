@@ -611,6 +611,42 @@ export default function Home() {
         </div>
       </nav>
 
+      {/* ── Splash ── */}
+      <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden">
+        <Image
+          src="/profile-photo2.png"
+          alt="Rafael Melo"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+        <div
+          className="absolute inset-0"
+          style={{ background: 'linear-gradient(to bottom, rgba(10,14,26,0.4) 0%, rgba(10,14,26,0.65) 70%, rgba(10,14,26,1) 100%)' }}
+        />
+        <div className="relative z-10 text-center px-4">
+          <p className="text-cyan-400 text-xs md:text-sm font-mono tracking-[0.35em] uppercase mb-5">
+            {lang === 'en' ? 'Engineer & Researcher' : 'Engenheiro & Pesquisador'}
+          </p>
+          <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight">
+            Rafael Melo
+          </h1>
+          <div className="flex flex-wrap items-center justify-center gap-3 text-slate-300 text-sm md:text-base">
+            <span>Unicamp</span>
+            <span className="text-slate-500">·</span>
+            <span>NVIDIA</span>
+            <span className="text-slate-500">·</span>
+            <span>{lang === 'en' ? 'Czech Republic' : 'República Tcheca'}</span>
+          </div>
+        </div>
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-slate-400/80">
+          <span className="text-[10px] tracking-[0.3em] uppercase">{lang === 'en' ? 'scroll' : 'role'}</span>
+          <svg className="animate-bounce" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 5v14M5 12l7 7 7-7" />
+          </svg>
+        </div>
+      </section>
+
       {/* ── Hero ── */}
       <section id="about" className="container mx-auto px-4 pt-32 pb-12 md:pt-40 md:pb-16 scroll-mt-16">
         <div className="max-w-6xl mx-auto">
@@ -1073,44 +1109,6 @@ export default function Home() {
               </div>
             </div>
           </Reveal>
-          {/* Super Liga X – cinematic full-width card */}
-          <Reveal delay={120} className="mb-5">
-            <div className="relative rounded-2xl overflow-hidden h-64 md:h-72 border border-slate-800/60 group">
-              <Image
-                src="/profile-photo2.png"
-                alt="Super Liga X – 1st Place National"
-                fill
-                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
-              />
-              {/* Gradient overlay: opaque on left, fades right */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: 'linear-gradient(100deg, rgba(10,14,26,0.97) 0%, rgba(10,14,26,0.82) 38%, rgba(10,14,26,0.35) 65%, rgba(10,14,26,0.1) 100%)',
-                }}
-              />
-              {/* Text */}
-              <div className="absolute inset-0 flex items-center px-8 md:px-10">
-                <div className="max-w-sm">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Award className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                    <span className="text-amber-400 text-xs font-bold uppercase tracking-widest">
-                      {lang === 'en' ? '1st Place · National' : '1º Lugar · Nacional'}
-                    </span>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
-                    Super Liga X
-                  </h3>
-                  <p className="text-slate-300 text-sm leading-relaxed">
-                    {lang === 'en'
-                      ? 'Entrepreneurship competition with 60+ university teams and 280+ participants across Brazil. My 4-person team won 1st place.'
-                      : 'Competição empreendedora com 60+ equipes universitárias e 280+ participantes no Brasil. Minha equipe de 4 pessoas conquistou o 1º lugar.'}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-
           <div className="grid md:grid-cols-2 gap-5">
             {[
               {
@@ -1120,6 +1118,10 @@ export default function Home() {
               {
                 title: { en: 'Merit-Based Research Selections (×2)', pt: 'Seleções por Mérito em Pesquisa (×2)' },
                 description: { en: 'Selected for Computer Vision research after the highest grade in Data Structures; selected for ML research after ranking 2nd in Statics (71 students).', pt: 'Selecionado para pesquisa em CV após maior nota em Estruturas de Dados; selecionado para pesquisa em ML após 2º lugar em Estática (71 alunos).' },
+              },
+              {
+                title: { en: 'Super Liga X – 1st Place National', pt: 'Super Liga X – 1º Lugar Nacional' },
+                description: { en: 'Entrepreneurship competition with 60+ university teams and 280+ participants across Brazil. My 4-person team won 1st place.', pt: 'Competição empreendedora com mais de 60 equipes e 280+ participantes no Brasil. Minha equipe de 4 pessoas conquistou o 1º lugar.' },
               },
               {
                 title: { en: 'Robocar Race – 3rd Place National', pt: 'Robocar Race – 3º Lugar Nacional' },
