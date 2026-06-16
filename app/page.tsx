@@ -636,7 +636,7 @@ export default function Home() {
             <span className="text-slate-500">·</span>
             <span>NVIDIA</span>
             <span className="text-slate-500">·</span>
-            <span>{lang === 'en' ? 'Czech Republic' : 'República Tcheca'}</span>
+            <span>Brazil</span>
           </div>
         </div>
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-slate-400/80">
