@@ -618,7 +618,7 @@ export default function Home() {
 
             {/* Photo – portrait card */}
             <div className="md:col-span-1 flex justify-center" style={hero(0)}>
-              <div className="relative mt-2 mb-10 md:mb-0">
+              <div className="relative mt-2 mb-2 md:mb-0">
 
                 {/* Ambient glow bloom */}
                 <div
@@ -658,49 +658,6 @@ export default function Home() {
                 <div className="absolute -bottom-[7px] -left-[7px] w-5 h-5 border-b-2 border-l-2 border-violet-400/65 pointer-events-none" />
                 <div className="absolute -bottom-[7px] -right-[7px] w-5 h-5 border-b-2 border-r-2 border-violet-400/65 pointer-events-none" />
 
-                {/* Status badge */}
-                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap z-10">
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-900 border border-slate-700 rounded-full shadow-xl">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-                    <span className="text-[11px] font-medium text-slate-300">
-                      {lang === 'en' ? 'Open to research' : 'Aberto a pesquisa'}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Floating chip — NVIDIA (right, desktop only) */}
-                <div
-                  className="hidden md:flex absolute -right-[68px] top-8 items-center gap-2 px-2.5 py-2 rounded-xl"
-                  style={{
-                    background: 'rgba(10,14,26,0.93)',
-                    border: '1px solid rgba(34,197,94,0.28)',
-                    backdropFilter: 'blur(10px)',
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.45)',
-                  }}
-                >
-                  <div className="w-2 h-2 rounded-full bg-green-400 flex-shrink-0" />
-                  <div>
-                    <div className="text-[11px] font-bold text-green-400 leading-none">NVIDIA</div>
-                    <div className="text-[9px] text-slate-500 leading-none mt-0.5">Research</div>
-                  </div>
-                </div>
-
-                {/* Floating chip — Top 2 (left, desktop only) */}
-                <div
-                  className="hidden md:flex absolute -left-[62px] bottom-14 items-center gap-2 px-2.5 py-2 rounded-xl"
-                  style={{
-                    background: 'rgba(10,14,26,0.93)',
-                    border: '1px solid rgba(251,191,36,0.28)',
-                    backdropFilter: 'blur(10px)',
-                    boxShadow: '0 4px 20px rgba(0,0,0,0.45)',
-                  }}
-                >
-                  <span className="text-xs flex-shrink-0">🏆</span>
-                  <div>
-                    <div className="text-[11px] font-bold text-amber-400 leading-none">Top 2</div>
-                    <div className="text-[9px] text-slate-500 leading-none mt-0.5">Unicamp</div>
-                  </div>
-                </div>
 
               </div>
             </div>
@@ -1116,41 +1073,68 @@ export default function Home() {
               </div>
             </div>
           </Reveal>
+          {/* Super Liga X – cinematic full-width card */}
+          <Reveal delay={120} className="mb-5">
+            <div className="relative rounded-2xl overflow-hidden h-64 md:h-72 border border-slate-800/60 group">
+              <Image
+                src="/profile-photo2.png"
+                alt="Super Liga X – 1st Place National"
+                fill
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              />
+              {/* Gradient overlay: opaque on left, fades right */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: 'linear-gradient(100deg, rgba(10,14,26,0.97) 0%, rgba(10,14,26,0.82) 38%, rgba(10,14,26,0.35) 65%, rgba(10,14,26,0.1) 100%)',
+                }}
+              />
+              {/* Text */}
+              <div className="absolute inset-0 flex items-center px-8 md:px-10">
+                <div className="max-w-sm">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Award className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                    <span className="text-amber-400 text-xs font-bold uppercase tracking-widest">
+                      {lang === 'en' ? '1st Place · National' : '1º Lugar · Nacional'}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight">
+                    Super Liga X
+                  </h3>
+                  <p className="text-slate-300 text-sm leading-relaxed">
+                    {lang === 'en'
+                      ? 'Entrepreneurship competition with 60+ university teams and 280+ participants across Brazil. My 4-person team won 1st place.'
+                      : 'Competição empreendedora com 60+ equipes universitárias e 280+ participantes no Brasil. Minha equipe de 4 pessoas conquistou o 1º lugar.'}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
           <div className="grid md:grid-cols-2 gap-5">
             {[
               {
                 title: { en: 'Top 2 in Class – Mechatronics Engineering', pt: 'Top 2 da Turma – Engenharia Mecatrônica' },
                 description: { en: 'GPA 3.6/4.0 – Ranked Top 2 in the Mechatronics Engineering class at Unicamp (Top 3% of the program).', pt: 'GPA 3,6/4,0 – Classificado Top 2 da turma de Engenharia Mecatrônica da Unicamp (Top 3% do programa).' },
-                image: null,
               },
               {
                 title: { en: 'Merit-Based Research Selections (×2)', pt: 'Seleções por Mérito em Pesquisa (×2)' },
                 description: { en: 'Selected for Computer Vision research after the highest grade in Data Structures; selected for ML research after ranking 2nd in Statics (71 students).', pt: 'Selecionado para pesquisa em CV após maior nota em Estruturas de Dados; selecionado para pesquisa em ML após 2º lugar em Estática (71 alunos).' },
-                image: null,
-              },
-              {
-                title: { en: 'Super Liga X – 1st Place National', pt: 'Super Liga X – 1º Lugar Nacional' },
-                description: { en: 'Entrepreneurship competition with 60+ university teams and 280+ participants across Brazil. My 4-person team won 1st place.', pt: 'Competição empreendedora com mais de 60 equipes e 280+ participantes no Brasil. Minha equipe de 4 pessoas conquistou o 1º lugar.' },
-                image: '/awards/super-liga-x.jpg',
               },
               {
                 title: { en: 'Robocar Race – 3rd Place National', pt: 'Robocar Race – 3º Lugar Nacional' },
                 description: { en: 'Autonomous vehicle competition against the 20 best universities in Brazil, combining robotics, AI, and computer vision.', pt: 'Competição de veículos autônomos contra as 20 melhores universidades do Brasil, combinando robótica, IA e visão computacional.' },
-                image: '/awards/robocar-race.jpg',
               },
             ].map((a, i) => (
               <Reveal key={a.title.en} delay={(i % 2) * 80}>
                 <div className="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition-colors h-full">
-                  <div className="flex items-start gap-3 mb-3">
+                  <div className="flex items-start gap-3">
                     <Award className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
-                    <h3 className="text-base font-semibold">{tx(a.title, lang)}</h3>
-                  </div>
-                  {a.image && (
-                    <div className="relative w-full h-60 rounded-lg overflow-hidden mb-3 bg-slate-800 border border-slate-700">
-                      <Image src={a.image} alt={a.title.en} fill className="object-contain" />
+                    <div>
+                      <h3 className="text-base font-semibold mb-1">{tx(a.title, lang)}</h3>
+                      <p className="text-slate-400 text-sm leading-relaxed">{tx(a.description, lang)}</p>
                     </div>
-                  )}
-                  <p className="text-slate-400 text-sm">{tx(a.description, lang)}</p>
+                  </div>
                 </div>
               </Reveal>
             ))}
