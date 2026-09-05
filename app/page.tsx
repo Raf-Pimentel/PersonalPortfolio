@@ -246,6 +246,7 @@ interface Project {
   images: string[]
   video?: string
   poster?: string
+  fit?: 'cover' | 'contain'
 }
 
 const PROJECTS: Project[] = [
@@ -272,7 +273,8 @@ const PROJECTS: Project[] = [
     github: 'https://github.com/Raf-Pimentel/Paper-PantanalBurns',
     doi: 'https://doi.org/10.1080/19475705.2026.2660859',
     iconName: 'FileText',
-    images: [],
+    images: ['/projects/pantanal-burns/cover.jpg'],
+    fit: 'contain',
   },
   {
     id: 'erc-night-task',
@@ -322,7 +324,8 @@ const PROJECTS: Project[] = [
     tags: ['PyTorch', 'Diffusion Models', 'Medical Imaging', 'Deep Learning'],
     github: null,
     iconName: 'Brain',
-    images: [],
+    images: ['/projects/brain-mri/cover.jpg'],
+    fit: 'contain',
   },
   {
     id: 'autonomous-perception',
@@ -919,7 +922,7 @@ export default function Home() {
                       className="relative aspect-[16/10] w-full overflow-hidden bg-panel cursor-zoom-in group/img"
                       aria-label={lang === 'en' ? 'Enlarge image' : 'Ampliar imagem'}
                     >
-                      <Image src={p.images[0]} alt={tx(p.title, lang)} fill className="object-cover transition-transform duration-700 group-hover/img:scale-105" />
+                      <Image src={p.images[0]} alt={tx(p.title, lang)} fill className={`${p.fit === 'contain' ? 'object-contain p-2' : 'object-cover'} transition-transform duration-700 group-hover/img:scale-105`} />
                       <span className="absolute bottom-2 right-2 inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-paper/90 text-ink text-[10px] opacity-0 group-hover/img:opacity-100 transition-opacity">
                         <Plus className="w-3 h-3" /> {lang === 'en' ? 'Zoom' : 'Ampliar'}
                       </span>
