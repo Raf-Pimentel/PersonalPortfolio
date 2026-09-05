@@ -312,7 +312,7 @@ const PROJECTS: Project[] = [
     tags: ['Python', 'Data Engineering', 'Finance', 'CI'],
     github: 'https://github.com/Raf-Pimentel/decade-fixed-income-ranking',
     iconName: 'Briefcase',
-    images: [],
+    images: ['/projects/decade-ranking/cover.jpg'],
   },
   {
     id: 'brain-mri',
