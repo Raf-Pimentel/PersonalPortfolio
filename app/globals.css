@@ -86,6 +86,26 @@ body::before {
   transform-origin: left;
 }
 
+/* Hero image grade */
+.hero-grade {
+  filter: saturate(0.9) contrast(1.03) brightness(1.02);
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

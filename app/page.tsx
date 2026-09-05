@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect, useRef, ReactNode } from 'react'
 import Image from 'next/image'
+import Lenis from 'lenis'
 import {
   Linkedin, Mail, Download, GraduationCap, Briefcase, Code,
   Brain, Users, BookOpen, Award, Menu, X, Globe, FileText, Github,
@@ -495,6 +496,29 @@ function Magnetic({ children, className = '' }: { children: ReactNode; className
   )
 }
 
+/** Translates its child against scroll for a subtle depth effect. */
+function Parallax({ speed = 0.12, className = '', children }: { speed?: number; className?: string; children: ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const el = ref.current
+    if (!el) return
+    let raf = 0
+    const update = () => {
+      const r = el.getBoundingClientRect()
+      const center = r.top + r.height / 2 - window.innerHeight / 2
+      el.style.transform = `translate3d(0, ${(-center * speed).toFixed(1)}px, 0)`
+    }
+    const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(update) }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); cancelAnimationFrame(raf) }
+  }, [speed])
+  return <div ref={ref} className={className}>{children}</div>
+}
+
 function Reveal({ children, delay = 0, className = '' }: { children: ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const [inView, setInView] = useState(false)
@@ -616,6 +640,24 @@ export default function Home() {
   const [zoom, setZoom] = useState<Zoom>(null)
 
   useEffect(() => { const t = setTimeout(() => setMounted(true), 60); return () => clearTimeout(t) }, [])
+
+  // Buttery smooth scroll (Lenis), disabled under reduced-motion
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 1 })
+    let raf = 0
+    const loop = (t: number) => { lenis.raf(t); raf = requestAnimationFrame(loop) }
+    raf = requestAnimationFrame(loop)
+    const onAnchor = (e: MouseEvent) => {
+      const a = (e.target as HTMLElement).closest('a[href^="#"]') as HTMLAnchorElement | null
+      if (!a) return
+      const id = a.getAttribute('href') || ''
+      if (id.length > 1) { const el = document.querySelector(id); if (el) { e.preventDefault(); lenis.scrollTo(el as HTMLElement, { offset: -70 }) } }
+    }
+    document.addEventListener('click', onAnchor)
+    return () => { cancelAnimationFrame(raf); lenis.destroy(); document.removeEventListener('click', onAnchor) }
+  }, [])
   const toggle = (id: string) => setExpanded(p => ({ ...p, [id]: !p[id] }))
   const hero = (delay: number): React.CSSProperties => ({
     opacity: mounted ? 1 : 0,
@@ -628,6 +670,8 @@ export default function Home() {
       <Spotlight />
       <ScrollProgress />
       <Lightbox item={zoom} onClose={() => setZoom(null)} />
+      {/* Decorative page frame */}
+      <div aria-hidden className="pointer-events-none fixed inset-2.5 md:inset-4 rounded-[20px] border border-line/80 z-[45]" />
 
       {/* ── Nav ── */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-paper/80 backdrop-blur-md border-b border-line">
@@ -670,66 +714,83 @@ export default function Home() {
       </nav>
 
       {/* ── Hero ── */}
-      <section id="top" className="relative mx-auto max-w-6xl px-6 pt-32 md:pt-44 pb-16 md:pb-24">
-        <div className="grid md:grid-cols-12 gap-10 md:gap-12 items-center">
-          <div className="md:col-span-7">
-            <p style={hero(0)} className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.25em] text-muted mb-6">
-              <MapPin className="w-3.5 h-3.5" /> Campinas, Brazil
-            </p>
-            <h1 style={hero(80)} className="font-serif text-6xl md:text-8xl leading-[0.95] tracking-tight text-navy">
-              Rafael<br />Melo
-            </h1>
-            <p style={hero(180)} className="mt-6 text-lg md:text-xl text-ink/80 max-w-xl">
-              {lang === 'en'
-                ? 'Engineer & researcher, building at the edge of AI, robotics and entrepreneurship.'
-                : 'Engenheiro & pesquisador, construindo na fronteira entre IA, robótica e empreendedorismo.'}
-            </p>
+      <section id="top" className="relative mx-auto max-w-[1240px] px-5 md:px-8 pt-28 md:pt-32 pb-16 md:pb-24">
+        <div className="grid md:grid-cols-12 gap-6 md:gap-8 items-stretch">
 
-            <div style={hero(280)} className="mt-7 border-l-2 border-navy/30 pl-4">
-              <p className="text-[13px] leading-relaxed text-ink/70">{tx(BIO, lang)}</p>
+          {/* Left: type block */}
+          <div className="md:col-span-6 lg:col-span-7 flex flex-col justify-between md:min-h-[78vh]">
+            <div>
+              <p style={hero(0)} className="flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.3em] text-muted mb-8">
+                <MapPin className="w-3.5 h-3.5" /> Campinas, Brazil · Est. 2024
+              </p>
+              <h1 style={hero(90)} className="font-serif font-light text-[19vw] leading-[0.86] tracking-[-0.02em] text-navy md:text-[10.5vw] lg:text-[9.5rem]">
+                Rafael<br /><span className="italic">Melo</span>
+              </h1>
+              <p style={hero(200)} className="mt-8 text-xl md:text-2xl text-ink/80 max-w-xl leading-snug font-serif">
+                {lang === 'en'
+                  ? 'Engineer and researcher building at the edge of AI, robotics and entrepreneurship.'
+                  : 'Engenheiro e pesquisador construindo na fronteira entre IA, robótica e empreendedorismo.'}
+              </p>
             </div>
 
-            {/* Now line, reflects the one role still active */}
-            <div style={hero(360)} className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-              <span className="inline-flex items-center gap-1.5 font-semibold text-navy">
-                <span className="w-1.5 h-1.5 rounded-full bg-navy animate-pulse" />
-                {lang === 'en' ? 'Now' : 'Agora'}
-              </span>
-              <span className="text-ink/80">{lang === 'en' ? 'President, Unicamp Entrepreneurship League' : 'Presidente, Liga Empreendedora Unicamp'}</span>
-              <span className="text-muted">·</span>
-              <span className="text-muted">{lang === 'en' ? 'Previously Tivio Capital, NVIDIA · LIDS' : 'Anteriormente Tivio Capital, NVIDIA · LIDS'}</span>
-            </div>
+            <div className="mt-10 md:mt-0">
+              <div style={hero(300)} className="max-w-xl">
+                <p className="text-sm leading-relaxed text-ink/70">{tx(BIO, lang)}</p>
+              </div>
 
-            <div style={hero(440)} className="flex flex-wrap gap-3 mt-8">
-              <Magnetic>
-                <a href="/cv.pdf" download
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-navy hover:bg-navy-700 text-paper text-sm rounded-full transition-colors">
-                  <Download className="w-4 h-4" /> {lang === 'en' ? 'Download CV' : 'Baixar CV'}
+              {/* Now line */}
+              <div style={hero(380)} className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+                <span className="inline-flex items-center gap-1.5 font-semibold text-navy">
+                  <span className="w-1.5 h-1.5 rounded-full bg-navy animate-pulse" />
+                  {lang === 'en' ? 'Now' : 'Agora'}
+                </span>
+                <span className="text-ink/80">{lang === 'en' ? 'President, Unicamp Entrepreneurship League' : 'Presidente, Liga Empreendedora Unicamp'}</span>
+                <span className="text-muted">·</span>
+                <span className="text-muted">{lang === 'en' ? 'Previously Tivio Capital, NVIDIA · LIDS' : 'Anteriormente Tivio Capital, NVIDIA · LIDS'}</span>
+              </div>
+
+              <div style={hero(460)} className="flex flex-wrap gap-3 mt-8">
+                <Magnetic>
+                  <a href="/cv.pdf" download
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-navy hover:bg-navy-700 text-paper text-sm rounded-full transition-colors">
+                    <Download className="w-4 h-4" /> {lang === 'en' ? 'Download CV' : 'Baixar CV'}
+                  </a>
+                </Magnetic>
+                <a href="https://www.linkedin.com/in/rafael-rodrigues-pimentel-de-melo-9588a02b3/" target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 border border-line hover:border-navy/50 text-ink text-sm rounded-full transition-colors">
+                  <Linkedin className="w-4 h-4 text-navy" /> LinkedIn
                 </a>
-              </Magnetic>
-              <a href="https://www.linkedin.com/in/rafael-rodrigues-pimentel-de-melo-9588a02b3/" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 border border-line hover:border-navy/50 text-ink text-sm rounded-full transition-colors">
-                <Linkedin className="w-4 h-4 text-navy" /> LinkedIn
-              </a>
-              <a href="https://github.com/Raf-Pimentel" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 border border-line hover:border-navy/50 text-ink text-sm rounded-full transition-colors">
-                <Github className="w-4 h-4 text-navy" /> GitHub
-              </a>
+                <a href="https://github.com/Raf-Pimentel" target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 border border-line hover:border-navy/50 text-ink text-sm rounded-full transition-colors">
+                  <Github className="w-4 h-4 text-navy" /> GitHub
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Portrait */}
-          <div className="md:col-span-5 flex justify-center md:justify-end" style={hero(200)}>
+          {/* Right: art-directed image panel */}
+          <div className="md:col-span-6 lg:col-span-5" style={hero(240)}>
             <button
               onClick={() => setZoom({ src: '/profile-photo.jpg', alt: 'Rafael Melo' })}
-              className="group relative block cursor-zoom-in"
+              className="group relative block w-full cursor-zoom-in"
               aria-label={lang === 'en' ? 'Enlarge photo' : 'Ampliar foto'}
             >
-              <div className="relative w-60 h-[330px] md:w-[300px] md:h-[400px] overflow-hidden rounded-sm bg-panel border border-line">
-                <Image src="/profile-photo.jpg" alt="Rafael Melo" fill className="object-cover transition-transform duration-700 group-hover:scale-105" priority />
-                <span className="absolute bottom-3 right-3 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-paper/90 text-ink text-[11px] opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Plus className="w-3 h-3" /> {lang === 'en' ? 'Zoom' : 'Ampliar'}
-                </span>
+              <div className="relative h-[62vh] md:h-[78vh] w-full overflow-hidden rounded-[14px] border border-line bg-panel">
+                <Parallax speed={0.1} className="absolute -inset-y-[10%] inset-x-0">
+                  <Image src="/profile-photo.jpg" alt="Rafael Melo" fill sizes="(max-width: 768px) 100vw, 40vw" className="object-cover hero-grade transition-transform duration-700 group-hover:scale-[1.04]" priority />
+                </Parallax>
+                {/* grade overlays */}
+                <div className="pointer-events-none absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(29,53,87,0.05) 0%, transparent 30%, transparent 55%, rgba(43,42,40,0.32) 100%)' }} />
+                <div className="pointer-events-none absolute inset-0 mix-blend-multiply" style={{ background: 'radial-gradient(120% 80% at 30% 20%, transparent 40%, rgba(29,53,87,0.16) 100%)' }} />
+                {/* caption */}
+                <div className="absolute left-4 bottom-4 right-4 flex items-end justify-between">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-paper/90">
+                    {lang === 'en' ? 'Portrait / 2026' : 'Retrato / 2026'}
+                  </p>
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-paper/90 text-ink text-[11px] opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Plus className="w-3 h-3" /> {lang === 'en' ? 'Zoom' : 'Ampliar'}
+                  </span>
+                </div>
               </div>
               {/* corner ticks */}
               <span className="absolute -top-2 -left-2 w-5 h-5 border-t border-l border-navy/50" />
@@ -738,6 +799,12 @@ export default function Home() {
               <span className="absolute -bottom-2 -right-2 w-5 h-5 border-b border-r border-navy/50" />
             </button>
           </div>
+        </div>
+
+        {/* scroll cue */}
+        <div style={hero(560)} className="mt-10 flex items-center gap-3 text-muted">
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em]">{lang === 'en' ? 'Scroll' : 'Role'}</span>
+          <span className="h-px w-16 bg-line" />
         </div>
       </section>
 
