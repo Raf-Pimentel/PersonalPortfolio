@@ -247,15 +247,63 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
-    id: 'mars-rover',
-    title: { en: '3D Vision System — Mars Rover (ERC)', pt: 'Sistema de Visão 3D — Rover Marciano (ERC)' },
+    id: 'dark-lands-rpg',
+    title: { en: 'Dark Lands — Narrative RPG', pt: 'Dark Lands — RPG Narrativo' },
     description: {
-      en: 'Developed a 3D Vision System for an Autonomous Mars Rover for the European Rover Challenge at the University of West Bohemia, Czech Republic. Resulted in 2 scientific papers submitted to international journals.',
-      pt: 'Desenvolveu Sistema de Visão 3D para Rover Autônomo em Marte no European Rover Challenge na Universidade da Boêmia Ocidental. Resultou em 2 artigos científicos submetidos a periódicos internacionais.',
+      en: 'Turn-based narrative RPG on the high seas: battle marine creatures — the Enchanting Mermaid, the Fish-Man and the Kraken — across three stages with random events and dropped weapons. Built in Java 21 using the Strategy and Builder design patterns, with Gradle, JAXB and JUnit 5.',
+      pt: 'RPG narrativo por turnos em alto-mar: enfrente criaturas marinhas — a Sereia Encantadora, o Homem-Peixe e o Kraken — em três estágios com eventos aleatórios e armas dropadas. Feito em Java 21 usando os padrões Strategy e Builder, com Gradle, JAXB e JUnit 5.',
     },
-    tags: ['Python', 'Computer Vision', '3D Vision', 'Robotics'],
-    github: null,
+    tags: ['Java 21', 'Design Patterns', 'Gradle', 'JAXB', 'JUnit 5'],
+    github: 'https://github.com/Raf-Pimentel/SideProject-Dark-Lands-RPG-Game',
+    iconName: 'Code',
+    images: ['/projects/dark-lands-rpg/cover.jpg'],
+  },
+  {
+    id: 'pantanal-burns',
+    title: { en: 'PantanalBurns — Wetland Disturbance Monitoring', pt: 'PantanalBurns — Monitoramento de Distúrbios' },
+    description: {
+      en: 'Reproducible regime-aware unsupervised framework that separates fire disturbance from seasonal flood-pulse signals in the Brazilian Pantanal, using Landsat NDVI/NBR time series, K-means eco-spectral regimes and a Random Forest. Published in Geomatics, Natural Hazards & Risk (2026).',
+      pt: 'Framework reproduzível não-supervisionado que separa distúrbios de fogo dos sinais sazonais de pulso de inundação no Pantanal, usando séries temporais Landsat NDVI/NBR, regimes eco-espectrais por K-means e Random Forest. Publicado no Geomatics, Natural Hazards & Risk (2026).',
+    },
+    tags: ['Python', 'Remote Sensing', 'Random Forest', 'Scikit-learn', 'Landsat'],
+    github: 'https://github.com/Raf-Pimentel/Paper-PantanalBurns',
+    iconName: 'FileText',
+    images: [],
+  },
+  {
+    id: 'erc-night-task',
+    title: { en: 'Night-Task Navigation for Competition Rovers', pt: 'Navegação Noturna para Rovers de Competição' },
+    description: {
+      en: 'Sim-to-Real pipeline evaluating ArUco marker detection in near-zero-lux conditions for the European Rover Challenge Night Task, using ROS2 Jazzy and Gazebo Harmonic and validated against physical experiments at the University of West Bohemia. Developed for the Artificial Life and Robotics journal.',
+      pt: 'Pipeline Sim-to-Real avaliando detecção de marcadores ArUco em condições de luz quase nula para a Night Task do European Rover Challenge, usando ROS2 Jazzy e Gazebo Harmonic e validado com experimentos físicos na Universidade da Boêmia Ocidental. Desenvolvido para o periódico Artificial Life and Robotics.',
+    },
+    tags: ['Python', 'ROS2', 'Gazebo', 'OpenCV', 'Computer Vision'],
+    github: 'https://github.com/Raf-Pimentel/Paper-ERC-Night-Task-Simulation',
     iconName: 'Globe',
+    images: [],
+  },
+  {
+    id: 'bearing-ml',
+    title: { en: 'ML for Journal Bearing Dynamics', pt: 'ML para Dinâmica de Mancais' },
+    description: {
+      en: "Numerical modeling of hydrodynamic behavior in journal short bearings using Reynolds' equations and machine learning to predict dynamic coefficients. Presenting at MECSOL 2026 at ITA.",
+      pt: 'Modelagem numérica do comportamento hidrodinâmico em mancais curtos com equações de Reynolds e ML para prever coeficientes dinâmicos. Apresentação no MECSOL 2026 no ITA.',
+    },
+    tags: ['Python', 'Scikit-learn', 'Numerical Modeling', 'NumPy'],
+    github: 'https://github.com/Raf-Pimentel/Paper--ML-for-Thrust-Bearings-DynamicCoefficients-',
+    iconName: 'Code',
+    images: ['/projects/scientific-initiation/image1.jpg', '/projects/scientific-initiation/image2.jpg'],
+  },
+  {
+    id: 'decade-ranking',
+    title: { en: 'Brazilian Fixed-Income Fund Ranking', pt: 'Ranking de Fundos de Renda Fixa' },
+    description: {
+      en: 'Data pipeline that ranks Brazilian fixed-income funds by retail client profile using public CVM and Central Bank data — validating 6.3M rows and producing reproducible top-five rankings for any reference date, with CI and quality reports.',
+      pt: 'Pipeline de dados que ranqueia fundos de renda fixa brasileiros por perfil de cliente usando dados públicos da CVM e do Banco Central — validando 6,3 milhões de linhas e gerando rankings top-cinco reproduzíveis para qualquer data de referência, com CI e relatórios de qualidade.',
+    },
+    tags: ['Python', 'Data Engineering', 'Finance', 'CI'],
+    github: 'https://github.com/Raf-Pimentel/decade-fixed-income-ranking',
+    iconName: 'Briefcase',
     images: [],
   },
   {
@@ -283,16 +331,16 @@ const PROJECTS: Project[] = [
     images: ['/projects/autonomous-perception/image1.jpg', '/projects/autonomous-perception/image2.jpg'],
   },
   {
-    id: 'bearing-ml',
-    title: { en: 'ML for Journal Bearing Dynamics', pt: 'ML para Dinâmica de Mancais' },
+    id: 'ifome',
+    title: { en: "'Ifome' Food Delivery App", pt: "App de Delivery 'Ifome'" },
     description: {
-      en: "Numerical modeling of hydrodynamic behavior in journal short bearings using Reynolds' equations and machine learning to predict dynamic coefficients. Presenting at MECSOL 2026 at ITA.",
-      pt: 'Modelagem numérica do comportamento hidrodinâmico em mancais curtos com equações de Reynolds e ML para prever coeficientes dinâmicos. Apresentação no MECSOL 2026 no ITA.',
+      en: 'iFood replica in Java with advanced OOP concepts, design patterns and data structures. MC322 — Unicamp.',
+      pt: 'Réplica do iFood em Java com POO avançada, padrões de projeto e estruturas de dados. MC322 — Unicamp.',
     },
-    tags: ['Python', 'Scikit-learn', 'Numerical Modeling', 'NumPy'],
-    github: 'https://github.com/Raf-Pimentel/Paper--ML-for-Thrust-BearingsDynamicCoefficients-',
+    tags: ['Java', 'OOP', 'Data Structures', 'Design Patterns'],
+    github: null,
     iconName: 'Code',
-    images: ['/projects/scientific-initiation/image1.jpg', '/projects/scientific-initiation/image2.jpg'],
+    images: ['/projects/ifome/cover.jpg'],
   },
   {
     id: 'rubiks',
@@ -305,18 +353,6 @@ const PROJECTS: Project[] = [
     github: null,
     iconName: 'Code',
     images: ['/projects/rubiks-cube/image1.jpg', '/projects/rubiks-cube/image2.jpg', '/projects/rubiks-cube/image3.jpg'],
-  },
-  {
-    id: 'ifome',
-    title: { en: "'Ifome' Food Delivery App", pt: "App de Delivery 'Ifome'" },
-    description: {
-      en: 'iFood replica in Java with advanced OOP concepts, design patterns and data structures. MC322 — Unicamp.',
-      pt: 'Réplica do iFood em Java com POO avançada, padrões de projeto e estruturas de dados. MC322 — Unicamp.',
-    },
-    tags: ['Java', 'OOP', 'Data Structures', 'Design Patterns'],
-    github: null,
-    iconName: 'Code',
-    images: [],
   },
 ]
 
