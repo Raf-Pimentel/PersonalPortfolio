@@ -27,6 +27,7 @@ const NAV_LINKS = [
 
 const TYPED_ROLES: Record<Lang, string[]> = {
   en: [
+    'Fund of Funds Analyst @ Tivio Capital',
     'NVIDIA-Supported CV Researcher',
     'Visiting Researcher @ Czech Republic',
     'Entrepreneurship League President',
@@ -35,6 +36,7 @@ const TYPED_ROLES: Record<Lang, string[]> = {
     'Mechatronics Engineer @ Unicamp',
   ],
   pt: [
+    'Analista de Fundo de Fundos @ Tivio Capital',
     'Pesquisador de VC Apoiado pela NVIDIA',
     'Pesquisador Visitante na Rep. Tcheca',
     'Presidente da Liga Empreendedora',
@@ -45,8 +47,8 @@ const TYPED_ROLES: Record<Lang, string[]> = {
 }
 
 const BIO: B = {
-  en: 'Mechatronics Engineering student at Unicamp (Top 2 in class, GPA 3.6). Participated in 5 research projects — including NVIDIA-supported research in Diffusion Models, a visiting researcher exchange in Czech Republic, and a published journal article on Remote Sensing. President of Unicamp\'s Entrepreneurship League, impacting 2,000+ students.',
-  pt: 'Estudante de Engenharia Mecatrônica na Unicamp (Top 2 da turma, GPA 3,6). Participou de 5 projetos de pesquisa — incluindo pesquisa apoiada pela NVIDIA em Modelos de Difusão, intercâmbio de pesquisador visitante na República Tcheca, e artigo publicado em periódico internacional de Sensoriamento Remoto. Presidente da Liga Empreendedora da Unicamp, impactando mais de 2.000 estudantes.',
+  en: 'Mechatronics Engineering student at Unicamp (Top 2 in class, GPA 3.6). Participated in 5 research projects — including NVIDIA-supported research in Diffusion Models, a visiting researcher exchange in Czech Republic, and a published journal article on Remote Sensing. Fund of Funds Summer Analyst at Tivio Capital and President of Unicamp\'s Entrepreneurship League, impacting 2,000+ students.',
+  pt: 'Estudante de Engenharia Mecatrônica na Unicamp (Top 2 da turma, GPA 3,6). Participou de 5 projetos de pesquisa — incluindo pesquisa apoiada pela NVIDIA em Modelos de Difusão, intercâmbio de pesquisador visitante na República Tcheca, e artigo publicado em periódico internacional de Sensoriamento Remoto. Analista de Verão de Fundo de Fundos na Tivio Capital e Presidente da Liga Empreendedora da Unicamp, impactando mais de 2.000 estudantes.',
 }
 
 const STATS = [
@@ -74,6 +76,27 @@ interface Exp {
 
 const EXPERIENCES: Exp[] = [
   {
+    id: 'tivio',
+    type: 'professional',
+    period: { en: 'Jul 2026 – Aug 2026', pt: 'Jul 2026 – Ago 2026' },
+    org: 'Tivio Capital',
+    location: 'São Paulo, Brazil',
+    role: { en: 'Fund of Funds Summer Analyst – Quantitative Finance', pt: 'Analista de Verão de Fundo de Fundos – Finanças Quantitativas' },
+    project: {
+      en: 'Quantitative modeling of the investment process (Total Portfolio Approach)',
+      pt: 'Modelagem quantitativa do processo de investimento (Total Portfolio Approach)',
+    },
+    description: {
+      en: 'Summer analyst on the Fund of Funds team, applying quantitative finance and data science to the investment process. Built quantitative models based on the Total Portfolio Approach (TPA), developed a monitoring scorecard using rolling windows, z-scores and percentiles, and compared TPA portfolios against the existing Strategic Asset Allocation.',
+      pt: 'Analista de verão no time de Fundo de Fundos, aplicando finanças quantitativas e ciência de dados ao processo de investimento. Construiu modelos quantitativos baseados no Total Portfolio Approach (TPA), desenvolveu um scorecard de monitoramento usando janelas móveis, z-scores e percentis, e comparou carteiras TPA com a Alocação Estratégica de Ativos existente.',
+    },
+    tags: ['Quantitative Finance', 'Data Science', 'Python', 'Portfolio Modeling', 'TPA'],
+    iconName: 'Briefcase',
+    dotColor: 'border-sky-400',
+    iconColor: 'text-sky-400',
+    isCurrent: false,
+  },
+  {
     id: 'west-bohemia',
     type: 'professional',
     period: { en: 'Jan 2026 – Mar 2026', pt: 'Jan 2026 – Mar 2026' },
@@ -97,7 +120,7 @@ const EXPERIENCES: Exp[] = [
   {
     id: 'nvidia-lids',
     type: 'professional',
-    period: { en: 'Jun 2025 – Present', pt: 'Jun 2025 – Presente' },
+    period: { en: 'Jun 2025 – Aug 2026', pt: 'Jun 2025 – Ago 2026' },
     org: 'NVIDIA · LIDS – Laboratory of Image Data Science at Unicamp',
     location: 'Campinas, Brazil',
     role: { en: 'Undergraduate Research – Computer Vision', pt: 'Iniciação Científica – Visão Computacional' },
@@ -113,7 +136,7 @@ const EXPERIENCES: Exp[] = [
     iconName: 'Brain',
     dotColor: 'border-green-400',
     iconColor: 'text-green-400',
-    isCurrent: true,
+    isCurrent: false,
   },
   {
     id: 'entrepreneurship',
@@ -135,7 +158,7 @@ const EXPERIENCES: Exp[] = [
   {
     id: 'lamar',
     type: 'professional',
-    period: { en: 'Jun 2025 – Present', pt: 'Jun 2025 – Presente' },
+    period: { en: 'Jun 2025 – Jun 2026', pt: 'Jun 2025 – Jun 2026' },
     org: 'LAMAR – Laboratory of Rotating Machines at Unicamp',
     location: 'Campinas, Brazil',
     role: { en: 'Undergraduate Research – Machine Learning & AI', pt: 'Iniciação Científica – Machine Learning & IA' },
@@ -151,7 +174,7 @@ const EXPERIENCES: Exp[] = [
     iconName: 'BookOpen',
     dotColor: 'border-blue-400',
     iconColor: 'text-blue-400',
-    isCurrent: true,
+    isCurrent: false,
   },
   {
     id: 'remote-sensing',
