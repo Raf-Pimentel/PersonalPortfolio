@@ -3,29 +3,98 @@
 @tailwind utilities;
 
 :root {
-  --background: #0f172a;
-  --foreground: #f1f5f9;
+  --paper: #f9f8f6;
+  --panel: #f1efea;
+  --line: #e1ddd5;
+  --navy: #1d3557;
+  --ink: #2b2a28;
+  --muted: #726d64;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-@keyframes cursor-blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+body {
+  color: var(--ink);
+  background-color: var(--paper);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  position: relative;
+  overflow-x: hidden;
 }
 
-body {
-  color: var(--foreground);
-  background: #0a0e1a;
-  background-image: 
-    radial-gradient(circle at 2px 2px, rgba(148, 163, 184, 0.08) 1px, transparent 0),
-    radial-gradient(circle at 20% 50%, rgba(30, 58, 138, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(30, 58, 138, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 40% 20%, rgba(15, 23, 42, 0.3) 0%, transparent 50%);
-  background-size: 50px 50px, 100% 100%, 100% 100%, 100% 100%;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+/* Paper grain — subtle authenticity */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--navy);
+  color: var(--paper);
+}
+
+/* Cursor-following spotlight */
+.spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 520px;
+  height: 520px;
+  margin: -260px 0 0 -260px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 30;
+  mix-blend-mode: multiply;
+  background: radial-gradient(circle, rgba(29, 53, 87, 0.1), transparent 62%);
+  will-change: transform;
+}
+
+/* Animated underline for links */
+.link-underline {
   position: relative;
 }
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
 
+/* Draw-in underline used under section context */
+.rule-grow {
+  transform-origin: left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .spotlight {
+    display: none;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
