@@ -347,7 +347,7 @@ const PROJECTS: Project[] = [
       pt: 'Réplica do iFood em Java com POO avançada, padrões de projeto e estruturas de dados. MC322, Unicamp.',
     },
     tags: ['Java', 'OOP', 'Data Structures', 'Design Patterns'],
-    github: null,
+    github: 'https://github.com/Jpedro-sr/MC322---Projeto-Final---Grupo-3',
     iconName: 'Code',
     images: ['/projects/ifome/cover.jpg'],
   },
