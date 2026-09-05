@@ -28,7 +28,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Paper grain — subtle authenticity */
+/* Paper grain, subtle authenticity */
 body::before {
   content: '';
   position: fixed;

@@ -25,8 +25,8 @@ const NAV_LINKS = [
 ]
 
 const BIO: B = {
-  en: "I'm a Mechatronics Engineering student at Unicamp (Top 2 in class) working at the intersection of AI, engineering and entrepreneurship. I've built autonomous perception systems, generative models for medical imaging, quantitative finance models, and published research — and I lead the largest entrepreneurship organization at my university.",
-  pt: 'Sou estudante de Engenharia Mecatrônica na Unicamp (Top 2 da turma) trabalhando na interseção entre IA, engenharia e empreendedorismo. Construí sistemas de percepção autônoma, modelos generativos para imagens médicas, modelos de finanças quantitativas e publiquei pesquisa — além de liderar a maior organização de empreendedorismo da minha universidade.',
+  en: "I'm a Mechatronics Engineering student at Unicamp (Top 2 in class) working at the intersection of AI, engineering and entrepreneurship. I've built autonomous perception systems, generative models for medical imaging and quantitative finance models, and I've published research. I also lead the largest entrepreneurship organization at my university.",
+  pt: 'Sou estudante de Engenharia Mecatrônica na Unicamp (Top 2 da turma) trabalhando na interseção entre IA, engenharia e empreendedorismo. Construí sistemas de percepção autônoma, modelos generativos para imagens médicas, modelos de finanças quantitativas e publiquei pesquisa, além de liderar a maior organização de empreendedorismo da minha universidade.',
 }
 
 const STATS = [
@@ -57,7 +57,7 @@ const EXPERIENCES: Exp[] = [
     period: { en: 'Jul 2026 – Aug 2026', pt: 'Jul 2026 – Ago 2026' },
     org: 'Tivio Capital',
     location: 'São Paulo, Brazil',
-    role: { en: 'Fund of Funds Summer Analyst — Quantitative Finance', pt: 'Analista de Verão de Fundo de Fundos — Finanças Quantitativas' },
+    role: { en: 'Fund of Funds Summer Analyst, Quantitative Finance', pt: 'Analista de Verão de Fundo de Fundos, Finanças Quantitativas' },
     project: {
       en: 'Quantitative modeling of the investment process (Total Portfolio Approach)',
       pt: 'Modelagem quantitativa do processo de investimento (Total Portfolio Approach)',
@@ -108,9 +108,9 @@ const EXPERIENCES: Exp[] = [
     id: 'nvidia-lids',
     type: 'professional',
     period: { en: 'Jun 2025 – Aug 2026', pt: 'Jun 2025 – Ago 2026' },
-    org: 'NVIDIA · LIDS — Laboratory of Image Data Science at Unicamp',
+    org: 'NVIDIA · LIDS, Laboratory of Image Data Science at Unicamp',
     location: 'Campinas, Brazil',
-    role: { en: 'Undergraduate Research — Computer Vision', pt: 'Iniciação Científica — Visão Computacional' },
+    role: { en: 'Undergraduate Research, Computer Vision', pt: 'Iniciação Científica, Visão Computacional' },
     project: {
       en: 'Synthesis of 3D Brain MRI using Diffusion Models',
       pt: 'Síntese de Imagens de RM Cerebral 3D com Modelos de Difusão',
@@ -127,9 +127,9 @@ const EXPERIENCES: Exp[] = [
     id: 'lamar',
     type: 'professional',
     period: { en: 'Jun 2025 – Jun 2026', pt: 'Jun 2025 – Jun 2026' },
-    org: 'LAMAR — Laboratory of Rotating Machines at Unicamp',
+    org: 'LAMAR, Laboratory of Rotating Machines at Unicamp',
     location: 'Campinas, Brazil',
-    role: { en: 'Undergraduate Research — Machine Learning & AI', pt: 'Iniciação Científica — Machine Learning & IA' },
+    role: { en: 'Undergraduate Research, Machine Learning & AI', pt: 'Iniciação Científica, Machine Learning & IA' },
     project: {
       en: 'Numerical Modeling of Journal Short Bearings using ML & AI',
       pt: 'Modelagem Numérica de Mancais Curtos com ML e IA',
@@ -146,9 +146,9 @@ const EXPERIENCES: Exp[] = [
     id: 'remote-sensing',
     type: 'professional',
     period: { en: '2025 – May 2026', pt: '2025 – Mai 2026' },
-    org: 'Geomatics, Natural Hazards & Risk — International Journal',
+    org: 'Geomatics, Natural Hazards & Risk (International Journal)',
     location: 'Brazil',
-    role: { en: 'Researcher — Remote Sensing & Environmental Monitoring', pt: 'Pesquisador — Sensoriamento Remoto e Monitoramento Ambiental' },
+    role: { en: 'Researcher, Remote Sensing & Environmental Monitoring', pt: 'Pesquisador, Sensoriamento Remoto e Monitoramento Ambiental' },
     project: {
       en: 'Flood-pulse confounding in wetland disturbance monitoring: Pantanal (2020–2025)',
       pt: 'Confusão de pulso de inundação no monitoramento de perturbação em zonas úmidas: Pantanal (2020–2025)',
@@ -165,9 +165,9 @@ const EXPERIENCES: Exp[] = [
     id: 'eracing',
     type: 'professional',
     period: { en: 'Apr 2024 – Jul 2025', pt: 'Abr 2024 – Jul 2025' },
-    org: 'Unicamp E-racing — Formula Student Team',
+    org: 'Unicamp E-racing, Formula Student Team',
     location: 'Campinas, Brazil',
-    role: { en: 'Perception Division — Autonomous Vehicles & Robotics', pt: 'Divisão de Percepção — Veículos Autônomos e Robótica' },
+    role: { en: 'Perception Division, Autonomous Vehicles & Robotics', pt: 'Divisão de Percepção, Veículos Autônomos e Robótica' },
     project: {
       en: 'Cone detection with YOLO + LiDAR fusion on ROS2 for autonomous Formula car',
       pt: 'Detecção de cones com fusão YOLO + LiDAR no ROS2 para carro Formula autônomo',
@@ -184,9 +184,9 @@ const EXPERIENCES: Exp[] = [
     id: 'harvard',
     type: 'volunteer',
     period: { en: 'Jan 2025 – Mar 2025', pt: 'Jan 2025 – Mar 2025' },
-    org: 'Harvard Business School — Aspire Leaders Program',
+    org: 'Harvard Business School, Aspire Leaders Program',
     location: 'Online (Global)',
-    role: { en: 'Program Participant — Business & Leadership', pt: 'Participante — Negócios e Liderança' },
+    role: { en: 'Program Participant, Business & Leadership', pt: 'Participante, Negócios e Liderança' },
     description: {
       en: "Participated in Harvard University's Aspire Leaders Program. Interacted with a diverse global cohort and connected directly with top educators from Harvard, MIT and Stanford, gaining significant insights into entrepreneurship, robotics and AI.",
       pt: 'Participou do Programa Aspire Leaders da Universidade Harvard. Interagiu com coorte global e se conectou com educadores de elite de Harvard, MIT e Stanford, adquirindo insights sobre empreendedorismo, robótica e IA.',
@@ -201,10 +201,10 @@ const EXPERIENCES: Exp[] = [
     period: { en: 'Jan 2021 – Nov 2021', pt: 'Jan 2021 – Nov 2021' },
     org: 'High School Independent Project',
     location: 'Barueri, Brazil',
-    role: { en: 'Project Lead — Documentary Film', pt: 'Líder de Projeto — Documentário' },
+    role: { en: 'Project Lead, Documentary Film', pt: 'Líder de Projeto, Documentário' },
     project: {
-      en: 'Barueri: Comércio e Educação — Documentary on Social Inequality',
-      pt: 'Barueri: Comércio e Educação — Documentário sobre Desigualdade Social',
+      en: 'Barueri: Comércio e Educação, Documentary on Social Inequality',
+      pt: 'Barueri: Comércio e Educação, Documentário sobre Desigualdade Social',
     },
     description: {
       en: 'Led a team of 10 in producing the first feature-length documentary exploring a sociological perspective on my hometown, highlighting social inequality and the consequences of limited education access. Honored with a school-wide award for its impact and pioneering nature.',
@@ -226,8 +226,8 @@ const EXPERIENCES: Exp[] = [
       pt: 'Além de Belas Palavras · Jovens Entre(linhas) · Cofre de Pensamentos',
     },
     description: {
-      en: 'Co-authored three books during high school, serving as project coordinator for two and leading teams of 50+ people each. Wrote about social, literary and philosophical topics — including societal pressure on individuals and the perception of time in modernity.',
-      pt: 'Co-autoria de três livros durante o ensino médio, coordenando dois como líder de projeto e liderando equipes de mais de 50 pessoas cada. Escreveu sobre temas sociais, literários e filosóficos — incluindo pressão social e a percepção do tempo na modernidade.',
+      en: 'Co-authored three books during high school, serving as project coordinator for two and leading teams of 50+ people each. Wrote about social, literary and philosophical topics, including societal pressure on individuals and the perception of time in modernity.',
+      pt: 'Co-autoria de três livros durante o ensino médio, coordenando dois como líder de projeto e liderando equipes de mais de 50 pessoas cada. Escreveu sobre temas sociais, literários e filosóficos, incluindo pressão social e a percepção do tempo na modernidade.',
     },
     tags: ['Writing', 'Leadership', 'Philosophy', 'Literature'],
     iconName: 'BookOpen',
@@ -252,10 +252,10 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     id: 'dark-lands-rpg',
-    title: { en: 'Dark Lands — Narrative RPG', pt: 'Dark Lands — RPG Narrativo' },
+    title: { en: 'Dark Lands, Narrative RPG', pt: 'Dark Lands, RPG Narrativo' },
     description: {
-      en: 'Turn-based narrative RPG on the high seas: battle marine creatures — the Enchanting Mermaid, the Fish-Man and the Kraken — across three stages with random events and dropped weapons. Built in Java 21 using the Strategy and Builder design patterns, with Gradle, JAXB and JUnit 5.',
-      pt: 'RPG narrativo por turnos em alto-mar: enfrente criaturas marinhas — a Sereia Encantadora, o Homem-Peixe e o Kraken — em três estágios com eventos aleatórios e armas dropadas. Feito em Java 21 usando os padrões Strategy e Builder, com Gradle, JAXB e JUnit 5.',
+      en: 'Turn-based narrative RPG on the high seas where you battle marine creatures like the Enchanting Mermaid, the Fish-Man and the Kraken across three stages with random events and dropped weapons. Built in Java 21 using the Strategy and Builder design patterns, with Gradle, JAXB and JUnit 5.',
+      pt: 'RPG narrativo por turnos em alto-mar no qual você enfrenta criaturas marinhas como a Sereia Encantadora, o Homem-Peixe e o Kraken ao longo de três estágios com eventos aleatórios e armas dropadas. Feito em Java 21 usando os padrões Strategy e Builder, com Gradle, JAXB e JUnit 5.',
     },
     tags: ['Java 21', 'Design Patterns', 'Gradle', 'JAXB', 'JUnit 5'],
     github: 'https://github.com/Raf-Pimentel/SideProject-Dark-Lands-RPG-Game',
@@ -264,7 +264,7 @@ const PROJECTS: Project[] = [
   },
   {
     id: 'pantanal-burns',
-    title: { en: 'PantanalBurns — Wetland Disturbance Monitoring', pt: 'PantanalBurns — Monitoramento de Distúrbios' },
+    title: { en: 'PantanalBurns, Wetland Disturbance Monitoring', pt: 'PantanalBurns, Monitoramento de Distúrbios' },
     description: {
       en: 'Reproducible regime-aware unsupervised framework that separates fire disturbance from seasonal flood-pulse signals in the Brazilian Pantanal, using Landsat NDVI/NBR time series, K-means eco-spectral regimes and a Random Forest. Published in Geomatics, Natural Hazards & Risk (2026).',
       pt: 'Framework reproduzível não-supervisionado que separa distúrbios de fogo dos sinais sazonais de pulso de inundação no Pantanal, usando séries temporais Landsat NDVI/NBR, regimes eco-espectrais por K-means e Random Forest. Publicado no Geomatics, Natural Hazards & Risk (2026).',
@@ -306,8 +306,8 @@ const PROJECTS: Project[] = [
     id: 'decade-ranking',
     title: { en: 'Brazilian Fixed-Income Fund Ranking', pt: 'Ranking de Fundos de Renda Fixa' },
     description: {
-      en: 'Data pipeline that ranks Brazilian fixed-income funds by retail client profile using public CVM and Central Bank data — validating 6.3M rows and producing reproducible top-five rankings for any reference date, with CI and quality reports.',
-      pt: 'Pipeline de dados que ranqueia fundos de renda fixa brasileiros por perfil de cliente usando dados públicos da CVM e do Banco Central — validando 6,3 milhões de linhas e gerando rankings top-cinco reproduzíveis para qualquer data de referência, com CI e relatórios de qualidade.',
+      en: 'Data pipeline that ranks Brazilian fixed-income funds by retail client profile using public CVM and Central Bank data, validating 6.3M rows and producing reproducible top-five rankings for any reference date, with CI and quality reports.',
+      pt: 'Pipeline de dados que ranqueia fundos de renda fixa brasileiros por perfil de cliente usando dados públicos da CVM e do Banco Central, validando 6,3 milhões de linhas e gerando rankings top-cinco reproduzíveis para qualquer data de referência, com CI e relatórios de qualidade.',
     },
     tags: ['Python', 'Data Engineering', 'Finance', 'CI'],
     github: 'https://github.com/Raf-Pimentel/decade-fixed-income-ranking',
@@ -343,8 +343,8 @@ const PROJECTS: Project[] = [
     id: 'ifome',
     title: { en: "'Ifome' Food Delivery App", pt: "App de Delivery 'Ifome'" },
     description: {
-      en: 'iFood replica in Java with advanced OOP concepts, design patterns and data structures. MC322 — Unicamp.',
-      pt: 'Réplica do iFood em Java com POO avançada, padrões de projeto e estruturas de dados. MC322 — Unicamp.',
+      en: 'iFood replica in Java with advanced OOP concepts, design patterns and data structures. MC322, Unicamp.',
+      pt: 'Réplica do iFood em Java com POO avançada, padrões de projeto e estruturas de dados. MC322, Unicamp.',
     },
     tags: ['Java', 'OOP', 'Data Structures', 'Design Patterns'],
     github: null,
@@ -400,24 +400,24 @@ const SKILL_GROUPS = [
 
 const HUMAN_LANGS = [
   { flag: '🇧🇷', name: { en: 'Portuguese', pt: 'Português' }, level: { en: 'Native', pt: 'Nativo' } },
-  { flag: '🇺🇸', name: { en: 'English', pt: 'Inglês' }, level: { en: 'Fluent — C1', pt: 'Fluente — C1' } },
+  { flag: '🇺🇸', name: { en: 'English', pt: 'Inglês' }, level: { en: 'Fluent (C1)', pt: 'Fluente (C1)' } },
   { flag: '🇫🇷', name: { en: 'French', pt: 'Francês' }, level: { en: 'Intermediate', pt: 'Intermediário' } },
   { flag: '🇪🇸', name: { en: 'Spanish', pt: 'Espanhol' }, level: { en: 'Intermediate', pt: 'Intermediário' } },
 ]
 
 const AWARDS = [
   {
-    title: { en: 'Top 2 in Class — Mechatronics Engineering', pt: 'Top 2 da Turma — Engenharia Mecatrônica' },
-    description: { en: 'GPA 3.6/4.0 — ranked Top 2 in the Mechatronics Engineering class at Unicamp (Top 3% of the program).', pt: 'GPA 3,6/4,0 — classificado Top 2 da turma de Engenharia Mecatrônica da Unicamp (Top 3% do programa).' },
+    title: { en: 'Top 2 in Class, Mechatronics Engineering', pt: 'Top 2 da Turma, Engenharia Mecatrônica' },
+    description: { en: 'GPA 3.6/4.0, ranked Top 2 in the Mechatronics Engineering class at Unicamp (Top 3% of the program).', pt: 'GPA 3,6/4,0, classificado Top 2 da turma de Engenharia Mecatrônica da Unicamp (Top 3% do programa).' },
     year: '2024–26',
   },
   {
-    title: { en: 'Super Liga X — 1st Place National', pt: 'Super Liga X — 1º Lugar Nacional' },
+    title: { en: 'Super Liga X, 1st Place National', pt: 'Super Liga X, 1º Lugar Nacional' },
     description: { en: 'Entrepreneurship competition with 90+ universities and 290+ participants across Brazil. My team won 1st place.', pt: 'Competição empreendedora com mais de 90 universidades e 290+ participantes no Brasil. Minha equipe conquistou o 1º lugar.' },
     year: '2025',
   },
   {
-    title: { en: 'Robocar Race — 3rd Place National', pt: 'Robocar Race — 3º Lugar Nacional' },
+    title: { en: 'Robocar Race, 3rd Place National', pt: 'Robocar Race, 3º Lugar Nacional' },
     description: { en: 'Autonomous vehicle competition against the 20 best universities in Brazil, combining robotics, AI and computer vision.', pt: 'Competição de veículos autônomos contra as 20 melhores universidades do Brasil, combinando robótica, IA e visão computacional.' },
     year: '2025',
   },
@@ -681,15 +681,15 @@ export default function Home() {
             </h1>
             <p style={hero(180)} className="mt-6 text-lg md:text-xl text-ink/80 max-w-xl">
               {lang === 'en'
-                ? 'Engineer & researcher — building at the edge of AI, robotics and entrepreneurship.'
-                : 'Engenheiro & pesquisador — construindo na fronteira entre IA, robótica e empreendedorismo.'}
+                ? 'Engineer & researcher, building at the edge of AI, robotics and entrepreneurship.'
+                : 'Engenheiro & pesquisador, construindo na fronteira entre IA, robótica e empreendedorismo.'}
             </p>
 
             <div style={hero(280)} className="mt-7 border-l-2 border-navy/30 pl-4">
               <p className="text-[13px] leading-relaxed text-ink/70">{tx(BIO, lang)}</p>
             </div>
 
-            {/* Now line — reflects the one role still active */}
+            {/* Now line, reflects the one role still active */}
             <div style={hero(360)} className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
               <span className="inline-flex items-center gap-1.5 font-semibold text-navy">
                 <span className="w-1.5 h-1.5 rounded-full bg-navy animate-pulse" />
@@ -823,7 +823,7 @@ export default function Home() {
                     {lang === 'en' ? 'Mechatronics Engineering (Control & Automation)' : 'Engenharia Mecatrônica (Controle e Automação)'}
                   </h3>
                   <p className="text-ink/70 text-sm mt-1">
-                    {lang === 'en' ? 'State University of Campinas (Unicamp) — BEng' : 'Universidade Estadual de Campinas (Unicamp) — Bacharelado'}
+                    {lang === 'en' ? 'State University of Campinas (Unicamp), BEng' : 'Universidade Estadual de Campinas (Unicamp), Bacharelado'}
                   </p>
                 </div>
               </div>
@@ -847,7 +847,7 @@ export default function Home() {
                     { en: 'Calculus I, II & III', pt: 'Cálculo I, II e III' },
                     { en: 'Linear Algebra', pt: 'Álgebra Linear' },
                   ].map(s => (
-                    <li key={s.en} className="flex items-start gap-2"><span className="text-navy">—</span><span>{tx(s, lang)}</span></li>
+                    <li key={s.en} className="flex items-start gap-2"><span className="text-navy">•</span><span>{tx(s, lang)}</span></li>
                   ))}
                 </ul>
               </div>
@@ -873,9 +873,9 @@ export default function Home() {
                 <Globe className="w-6 h-6 text-navy flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-serif text-xl md:text-2xl text-navy">
-                    {lang === 'en' ? 'Visiting Student — Exchange Program' : 'Estudante Visitante — Intercâmbio'}
+                    {lang === 'en' ? 'Visiting Student, Exchange Program' : 'Estudante Visitante, Intercâmbio'}
                   </h3>
-                  <p className="text-ink/70 text-sm mt-1">University of West Bohemia — Plzeň, Czech Republic</p>
+                  <p className="text-ink/70 text-sm mt-1">University of West Bohemia, Plzeň, Czech Republic</p>
                 </div>
               </div>
               <span className="px-3 py-1 border border-navy/30 text-navy text-xs font-semibold rounded-full">{lang === 'en' ? 'Merit-Based' : 'Por Mérito'}</span>
@@ -1025,7 +1025,7 @@ export default function Home() {
             </h3>
             <p className="text-ink/70 text-sm leading-relaxed">
               {lang === 'en'
-                ? "Remote sensing and unsupervised machine learning to monitor environmental disturbances in the Pantanal — the world's largest tropical wetland — using satellite time-series from 2020 to 2025."
+                ? "Remote sensing and unsupervised machine learning to monitor environmental disturbances in the Pantanal, the world's largest tropical wetland, using satellite time-series from 2020 to 2025."
                 : 'Sensoriamento remoto e machine learning não-supervisionado para monitorar distúrbios ambientais no Pantanal usando séries temporais de satélites de 2020 a 2025.'}
             </p>
             <a href="https://doi.org/10.1080/19475705.2026.2660859" target="_blank" rel="noopener noreferrer"
