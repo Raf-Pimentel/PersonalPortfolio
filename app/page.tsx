@@ -241,8 +241,11 @@ interface Project {
   description: B
   tags: string[]
   github: string | null
+  doi?: string
   iconName: string
   images: string[]
+  video?: string
+  poster?: string
 }
 
 const PROJECTS: Project[] = [
@@ -267,6 +270,7 @@ const PROJECTS: Project[] = [
     },
     tags: ['Python', 'Remote Sensing', 'Random Forest', 'Scikit-learn', 'Landsat'],
     github: 'https://github.com/Raf-Pimentel/Paper-PantanalBurns',
+    doi: 'https://doi.org/10.1080/19475705.2026.2660859',
     iconName: 'FileText',
     images: [],
   },
@@ -281,6 +285,8 @@ const PROJECTS: Project[] = [
     github: 'https://github.com/Raf-Pimentel/Paper-ERC-Night-Task-Simulation',
     iconName: 'Globe',
     images: [],
+    video: '/projects/erc-night-task/visual-odometry.mp4',
+    poster: '/projects/erc-night-task/poster.jpg',
   },
   {
     id: 'bearing-ml',
@@ -894,7 +900,20 @@ export default function Home() {
             return (
               <Reveal key={p.id} delay={(i % 3) * 80}>
                 <div className="h-full flex flex-col border border-line rounded-lg overflow-hidden bg-paper hover:border-navy/40 hover:-translate-y-1 transition-all duration-300">
-                  {p.images.length > 0 ? (
+                  {p.video ? (
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-panel">
+                      <video
+                        src={p.video}
+                        poster={p.poster}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="metadata"
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    </div>
+                  ) : p.images.length > 0 ? (
                     <button
                       onClick={() => setZoom({ src: p.images[0], alt: tx(p.title, lang) })}
                       className="relative aspect-[16/10] w-full overflow-hidden bg-panel cursor-zoom-in group/img"
@@ -918,11 +937,21 @@ export default function Home() {
                         <span key={t} className="px-2 py-0.5 bg-panel border border-line text-muted rounded-full text-[11px]">{t}</span>
                       ))}
                     </div>
-                    {p.github && (
-                      <a href={p.github} target="_blank" rel="noopener noreferrer"
-                        className="link-underline inline-flex items-center gap-1.5 text-navy text-xs font-semibold mt-3 w-fit">
-                        <Github className="w-3.5 h-3.5" /> {lang === 'en' ? 'View on GitHub' : 'Ver no GitHub'} <ArrowUpRight className="w-3 h-3" />
-                      </a>
+                    {(p.github || p.doi) && (
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mt-3">
+                        {p.github && (
+                          <a href={p.github} target="_blank" rel="noopener noreferrer"
+                            className="link-underline inline-flex items-center gap-1.5 text-navy text-xs font-semibold w-fit">
+                            <Github className="w-3.5 h-3.5" /> {lang === 'en' ? 'View on GitHub' : 'Ver no GitHub'} <ArrowUpRight className="w-3 h-3" />
+                          </a>
+                        )}
+                        {p.doi && (
+                          <a href={p.doi} target="_blank" rel="noopener noreferrer"
+                            className="link-underline inline-flex items-center gap-1.5 text-navy text-xs font-semibold w-fit">
+                            <FileText className="w-3.5 h-3.5" /> {lang === 'en' ? 'Read paper (DOI)' : 'Ler artigo (DOI)'} <ArrowUpRight className="w-3 h-3" />
+                          </a>
+                        )}
+                      </div>
                     )}
                   </div>
                 </div>
@@ -996,6 +1025,10 @@ export default function Home() {
                 ? "Remote sensing and unsupervised machine learning to monitor environmental disturbances in the Pantanal — the world's largest tropical wetland — using satellite time-series from 2020 to 2025."
                 : 'Sensoriamento remoto e machine learning não-supervisionado para monitorar distúrbios ambientais no Pantanal usando séries temporais de satélites de 2020 a 2025.'}
             </p>
+            <a href="https://doi.org/10.1080/19475705.2026.2660859" target="_blank" rel="noopener noreferrer"
+              className="link-underline inline-flex items-center gap-1.5 text-navy text-xs font-semibold mt-3 w-fit">
+              <FileText className="w-3.5 h-3.5" /> {lang === 'en' ? 'Read paper (DOI)' : 'Ler artigo (DOI)'} <ArrowUpRight className="w-3 h-3" />
+            </a>
           </div>
         </Reveal>
         <div className="grid md:grid-cols-2 gap-5">
