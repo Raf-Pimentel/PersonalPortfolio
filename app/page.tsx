@@ -17,6 +17,7 @@ const tx = (b: B, lang: Lang) => b[lang]
 
 const NAV_LINKS = [
   { label: { en: 'Work', pt: 'Trajetória' }, href: '#experience' },
+  { label: { en: 'Volunteering', pt: 'Voluntariado' }, href: '#volunteer' },
   { label: { en: 'Education', pt: 'Educação' }, href: '#education' },
   { label: { en: 'Projects', pt: 'Projetos' }, href: '#projects' },
   { label: { en: 'Skills', pt: 'Habilidades' }, href: '#skills' },
@@ -645,6 +646,46 @@ export default function Home() {
 
   useEffect(() => { const t = setTimeout(() => setMounted(true), 60); return () => clearTimeout(t) }, [])
   const toggle = (id: string) => setExpanded(p => ({ ...p, [id]: !p[id] }))
+
+  const renderTimeline = (items: Exp[]) => (
+    <div className="relative">
+      <div className="absolute left-[7px] top-2 bottom-2 w-px bg-line" />
+      <div className="space-y-8">
+        {items.map((exp, i) => (
+          <Reveal key={exp.id} delay={(i % 4) * 60} className="relative pl-8">
+            <span className={`absolute left-0 top-2 w-[15px] h-[15px] rounded-full border-2 ${exp.isCurrent ? 'border-navy bg-navy' : 'border-line bg-paper'}`} />
+            <div className="group">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span className="font-mono text-xs text-muted">{tx(exp.period, lang)}</span>
+                {exp.isCurrent && (
+                  <span className="inline-flex items-center gap-1 text-navy text-[11px] font-semibold uppercase tracking-wide">
+                    <span className="w-1.5 h-1.5 rounded-full bg-navy animate-pulse" /> {lang === 'en' ? 'Present' : 'Presente'}
+                  </span>
+                )}
+                                  </div>
+              <h3 className="font-serif text-xl md:text-2xl text-navy mt-1.5 leading-snug">{exp.org}</h3>
+              <p className="text-ink/80 text-sm mt-0.5">{tx(exp.role, lang)}</p>
+              <p className="text-muted text-xs mt-0.5">{exp.location}</p>
+              {exp.project && (
+                <p className="text-navy/80 text-sm italic mt-2">↳ {tx(exp.project, lang)}</p>
+              )}
+              <p className={`text-ink/70 text-sm leading-relaxed mt-2 ${expanded[exp.id] ? '' : 'line-clamp-2'}`}>
+                {tx(exp.description, lang)}
+              </p>
+              <button onClick={() => toggle(exp.id)} className="link-underline text-navy text-xs font-semibold mt-2">
+                {expanded[exp.id] ? (lang === 'en' ? 'Show less' : 'Ver menos') : (lang === 'en' ? 'Read more' : 'Ler mais')}
+              </button>
+              <div className="flex flex-wrap gap-1.5 mt-3">
+                {exp.tags.map(t => (
+                  <span key={t} className="px-2 py-0.5 bg-panel border border-line text-muted rounded-full text-[11px]">{t}</span>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  )
   const hero = (delay: number): React.CSSProperties => ({
     opacity: mounted ? 1 : 0,
     transform: mounted ? 'translateY(0)' : 'translateY(20px)',
@@ -796,51 +837,24 @@ export default function Home() {
             ? 'A path across autonomous systems, generative AI, quantitative finance, research and leadership.'
             : 'Um caminho por sistemas autônomos, IA generativa, finanças quantitativas, pesquisa e liderança.'}
         />
-        <div className="relative">
-          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-line" />
-          <div className="space-y-8">
-            {EXPERIENCES.map((exp, i) => (
-              <Reveal key={exp.id} delay={(i % 4) * 60} className="relative pl-8">
-                <span className={`absolute left-0 top-2 w-[15px] h-[15px] rounded-full border-2 ${exp.isCurrent ? 'border-navy bg-navy' : 'border-line bg-paper'}`} />
-                <div className="group">
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                    <span className="font-mono text-xs text-muted">{tx(exp.period, lang)}</span>
-                    {exp.isCurrent && (
-                      <span className="inline-flex items-center gap-1 text-navy text-[11px] font-semibold uppercase tracking-wide">
-                        <span className="w-1.5 h-1.5 rounded-full bg-navy animate-pulse" /> {lang === 'en' ? 'Present' : 'Presente'}
-                      </span>
-                    )}
-                    {exp.type === 'volunteer' && (
-                      <span className="text-[11px] text-muted uppercase tracking-wide">{lang === 'en' ? 'Volunteer' : 'Voluntário'}</span>
-                    )}
-                  </div>
-                  <h3 className="font-serif text-xl md:text-2xl text-navy mt-1.5 leading-snug">{exp.org}</h3>
-                  <p className="text-ink/80 text-sm mt-0.5">{tx(exp.role, lang)}</p>
-                  <p className="text-muted text-xs mt-0.5">{exp.location}</p>
-                  {exp.project && (
-                    <p className="text-navy/80 text-sm italic mt-2">↳ {tx(exp.project, lang)}</p>
-                  )}
-                  <p className={`text-ink/70 text-sm leading-relaxed mt-2 ${expanded[exp.id] ? '' : 'line-clamp-2'}`}>
-                    {tx(exp.description, lang)}
-                  </p>
-                  <button onClick={() => toggle(exp.id)} className="link-underline text-navy text-xs font-semibold mt-2">
-                    {expanded[exp.id] ? (lang === 'en' ? 'Show less' : 'Ver menos') : (lang === 'en' ? 'Read more' : 'Ler mais')}
-                  </button>
-                  <div className="flex flex-wrap gap-1.5 mt-3">
-                    {exp.tags.map(t => (
-                      <span key={t} className="px-2 py-0.5 bg-panel border border-line text-muted rounded-full text-[11px]">{t}</span>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
+        {renderTimeline(EXPERIENCES.filter(e => e.type === 'professional'))}
+      </section>
+
+      {/* ── Volunteering ── */}
+      <section id="volunteer" className="mx-auto max-w-4xl px-6 py-20 md:py-28 scroll-mt-16">
+        <SectionHead
+          num="02"
+          title={lang === 'en' ? 'Volunteering' : 'Voluntariado'}
+          kicker={lang === 'en'
+            ? 'Community, outreach and independent projects beyond the lab and the office.'
+            : 'Comunidade, divulgação e projetos independentes além do laboratório e do escritório.'}
+        />
+        {renderTimeline(EXPERIENCES.filter(e => e.type === 'volunteer'))}
       </section>
 
       {/* ── Education ── */}
       <section id="education" className="mx-auto max-w-4xl px-6 py-20 md:py-28 scroll-mt-16">
-        <SectionHead num="02" title={lang === 'en' ? 'Education' : 'Educação'} />
+        <SectionHead num="03" title={lang === 'en' ? 'Education' : 'Educação'} />
         <Reveal>
           <div className="border border-line rounded-lg p-6 md:p-8 bg-panel/40 hover:border-navy/40 transition-colors">
             <div className="flex flex-wrap items-start justify-between gap-4">
@@ -921,7 +935,7 @@ export default function Home() {
       {/* ── Projects ── */}
       <section id="projects" className="mx-auto max-w-6xl px-6 py-20 md:py-28 scroll-mt-16">
         <SectionHead
-          num="03"
+          num="04"
           title={lang === 'en' ? 'Selected Projects' : 'Projetos Selecionados'}
           kicker={lang === 'en' ? 'Click any image to enlarge it.' : 'Clique em qualquer imagem para ampliá-la.'}
         />
@@ -994,7 +1008,7 @@ export default function Home() {
 
       {/* ── Skills ── */}
       <section id="skills" className="mx-auto max-w-6xl px-6 py-20 md:py-28 scroll-mt-16">
-        <SectionHead num="04" title={lang === 'en' ? 'Skills' : 'Habilidades'} />
+        <SectionHead num="05" title={lang === 'en' ? 'Skills' : 'Habilidades'} />
         <div className="grid md:grid-cols-3 gap-6">
           {SKILL_GROUPS.map((group, gi) => (
             <Reveal key={group.title.en} delay={gi * 80}>
@@ -1037,7 +1051,7 @@ export default function Home() {
 
       {/* ── Awards ── */}
       <section id="awards" className="mx-auto max-w-6xl px-6 py-20 md:py-28 scroll-mt-16">
-        <SectionHead num="05" title={lang === 'en' ? 'Awards & Publication' : 'Prêmios & Publicação'} />
+        <SectionHead num="06" title={lang === 'en' ? 'Awards & Publication' : 'Prêmios & Publicação'} />
         <Reveal className="mb-6">
           <div className="border-l-2 border-navy bg-panel/50 rounded-r-lg p-6 md:p-8">
             <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -1082,7 +1096,7 @@ export default function Home() {
 
       {/* ── Contact ── */}
       <section id="contact" className="mx-auto max-w-4xl px-6 py-20 md:py-28 scroll-mt-16">
-        <SectionHead num="06" title={lang === 'en' ? 'Contact' : 'Contato'} />
+        <SectionHead num="07" title={lang === 'en' ? 'Contact' : 'Contato'} />
         <Reveal>
           <p className="font-serif text-2xl md:text-3xl text-navy leading-snug max-w-2xl">
             {lang === 'en'
