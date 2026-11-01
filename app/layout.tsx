@@ -13,7 +13,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: 'Rafael Melo, Engineer & Researcher',
   description:
-    'Mechatronics Engineering student at Unicamp (Top 2 in class). Fund of Funds Analyst at Tivio Capital, NVIDIA-supported researcher in Computer Vision & Diffusion Models, and President of Unicamp Entrepreneurship League.',
+    'Mechatronics Engineering student at Unicamp (Top 2 in class). Fund of Funds Analyst at Tivio Capital, NVIDIA-supported researcher in Computer Vision & Diffusion Models, and Google Student Ambassador at Unicamp.',
   openGraph: {
     title: 'Rafael Melo, Engineer & Researcher',
     description:

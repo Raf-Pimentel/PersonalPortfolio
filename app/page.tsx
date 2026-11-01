@@ -25,8 +25,8 @@ const NAV_LINKS = [
 ]
 
 const BIO: B = {
-  en: "I'm a Mechatronics Engineering student at Unicamp (Top 2 in class) working at the intersection of AI, engineering and entrepreneurship. I've built autonomous perception systems, generative models for medical imaging and quantitative finance models, and I've published research. I also lead the largest entrepreneurship organization at my university.",
-  pt: 'Sou estudante de Engenharia Mecatrônica na Unicamp (Top 2 da turma) trabalhando na interseção entre IA, engenharia e empreendedorismo. Construí sistemas de percepção autônoma, modelos generativos para imagens médicas, modelos de finanças quantitativas e publiquei pesquisa, além de liderar a maior organização de empreendedorismo da minha universidade.',
+  en: "I'm a Mechatronics Engineering student at Unicamp (Top 2 in class) working at the intersection of AI, engineering and entrepreneurship. I've built autonomous perception systems, generative models for medical imaging and quantitative finance models, and I've published research. I previously presided over the largest entrepreneurship organization at my university.",
+  pt: 'Sou estudante de Engenharia Mecatrônica na Unicamp (Top 2 da turma) trabalhando na interseção entre IA, engenharia e empreendedorismo. Construí sistemas de percepção autônoma, modelos generativos para imagens médicas, modelos de finanças quantitativas e publiquei pesquisa, além de ter presidido a maior organização de empreendedorismo da minha universidade.',
 }
 
 const STATS = [
@@ -52,6 +52,21 @@ interface Exp {
 
 const EXPERIENCES: Exp[] = [
   {
+    id: 'google-student-ambassador',
+    type: 'volunteer',
+    period: { en: 'Oct 2026 – Present', pt: 'Out 2026 – Presente' },
+    org: 'Google Student Ambassador Program',
+    location: 'Campinas, Brazil',
+    role: { en: 'Volunteer, Google Outreach Lead at Unicamp', pt: 'Voluntário, Responsável pela Divulgação do Google na Unicamp' },
+    description: {
+      en: "Volunteer in the Google Student Ambassador program at Unicamp, responsible for promoting Google's activities, programs and opportunities to the university community.",
+      pt: 'Voluntário no programa Google Student Ambassador na Unicamp, responsável pela divulgação das atividades, programas e oportunidades do Google para a comunidade universitária.',
+    },
+    tags: ['Community', 'Outreach', 'Communication', 'Google'],
+    iconName: 'Users',
+    isCurrent: true,
+  },
+  {
     id: 'tivio',
     type: 'professional',
     period: { en: 'Jul 2026 – Aug 2026', pt: 'Jul 2026 – Ago 2026' },
@@ -73,17 +88,17 @@ const EXPERIENCES: Exp[] = [
   {
     id: 'entrepreneurship',
     type: 'professional',
-    period: { en: 'Aug 2025 – Present', pt: 'Ago 2025 – Presente' },
+    period: { en: 'Aug 2025 – Oct 2026', pt: 'Ago 2025 – Out 2026' },
     org: 'Unicamp Entrepreneurship League',
     location: 'Campinas, Brazil',
     role: { en: 'President', pt: 'Presidente' },
     description: {
-      en: "Manage a 30-person team developing startups and products to enhance the university's entrepreneurial ecosystem. Impacted 3,000+ students. Interact with Brazil's most influential entrepreneurs and C-suite executives, receiving individualized mentorship and organizing high-impact events. Partners: Itaú, XP, Nubank, Fundação Estudar, Kaszek Ventures, Atlantico VC.",
-      pt: 'Gerencia equipe de 30 pessoas desenvolvendo startups e produtos para o ecossistema empreendedor da Unicamp. Impactou mais de 3.000 estudantes. Interage com os empreendedores e executivos mais influentes do Brasil, recebendo mentoria individualizada e organizando eventos de alto impacto. Parceiros: Itaú, XP, Nubank, Fundação Estudar, Kaszek Ventures, Atlantico VC.',
+      en: "Managed a 30-person team developing startups and products to enhance the university's entrepreneurial ecosystem. Impacted 3,000+ students. Interacted with Brazil's most influential entrepreneurs and C-suite executives, receiving individualized mentorship and organizing high-impact events. Partners: Itaú, XP, Nubank, Fundação Estudar, Kaszek Ventures, Atlantico VC.",
+      pt: 'Gerenciou equipe de 30 pessoas desenvolvendo startups e produtos para o ecossistema empreendedor da Unicamp. Impactou mais de 3.000 estudantes. Interagiu com os empreendedores e executivos mais influentes do Brasil, recebendo mentoria individualizada e organizando eventos de alto impacto. Parceiros: Itaú, XP, Nubank, Fundação Estudar, Kaszek Ventures, Atlantico VC.',
     },
     tags: ['Leadership', 'Entrepreneurship', 'Startups', 'Team Management'],
     iconName: 'Users',
-    isCurrent: true,
+    isCurrent: false,
   },
   {
     id: 'west-bohemia',
@@ -107,7 +122,7 @@ const EXPERIENCES: Exp[] = [
   {
     id: 'nvidia-lids',
     type: 'professional',
-    period: { en: 'Jun 2025 – Aug 2026', pt: 'Jun 2025 – Ago 2026' },
+    period: { en: 'Jun 2025 – Present', pt: 'Jun 2025 – Presente' },
     org: 'NVIDIA · LIDS, Laboratory of Image Data Science at Unicamp',
     location: 'Campinas, Brazil',
     role: { en: 'Undergraduate Research, Computer Vision', pt: 'Iniciação Científica, Visão Computacional' },
@@ -116,12 +131,12 @@ const EXPERIENCES: Exp[] = [
       pt: 'Síntese de Imagens de RM Cerebral 3D com Modelos de Difusão',
     },
     description: {
-      en: "Selected for a research position by Prof. Dr. Alexandre Xavier Falcão (one of Brazil's most cited CS researchers in Computer Vision). Engaged in graduate-level studies in Deep Learning, Computer Vision, Medical Imaging and Diffusion Models, including auditing a graduate-level Image Processing and Deep Learning course. Research supported by NVIDIA.",
-      pt: 'Selecionado pelo Prof. Dr. Alexandre Xavier Falcão (um dos pesquisadores de CV mais citados do Brasil). Realizou estudos em nível de pós-graduação em Deep Learning, Visão Computacional, Imagens Médicas e Modelos de Difusão, auditando curso de pós-graduação em Processamento de Imagens. Pesquisa apoiada pela NVIDIA.',
+      en: "Selected for a research position by Prof. Dr. Alexandre Xavier Falcão (one of Brazil's most cited CS researchers in Computer Vision). Engaged in graduate-level studies in Deep Learning, Computer Vision, Medical Imaging and Diffusion Models, including auditing a graduate-level Image Processing and Deep Learning course. Research supported by NVIDIA. The synthesis research was interrupted midway; I now continue with LIDS building MRI ValidationApp, a blind-rating platform for physicians to assess how realistic 3D brain MRI volumes look.",
+      pt: 'Selecionado pelo Prof. Dr. Alexandre Xavier Falcão (um dos pesquisadores de CV mais citados do Brasil). Realizou estudos em nível de pós-graduação em Deep Learning, Visão Computacional, Imagens Médicas e Modelos de Difusão, auditando curso de pós-graduação em Processamento de Imagens. Pesquisa apoiada pela NVIDIA. A pesquisa de síntese foi interrompida no meio; hoje sigo com o LIDS desenvolvendo o MRI ValidationApp, plataforma de avaliação cega para médicos julgarem o realismo de volumes de RM cerebral 3D.',
     },
     tags: ['Diffusion Models', 'Deep Learning', 'Medical Imaging', 'PyTorch', 'Computer Vision'],
     iconName: 'Brain',
-    isCurrent: false,
+    isCurrent: true,
   },
   {
     id: 'lamar',
@@ -250,6 +265,19 @@ interface Project {
 }
 
 const PROJECTS: Project[] = [
+  {
+    id: 'mri-validation-app',
+    title: { en: 'MRI ValidationApp, Blind Rating for Physicians', pt: 'MRI ValidationApp, Avaliação Cega para Médicos' },
+    description: {
+      en: 'Web platform, built with LIDS/Unicamp, where physicians blindly rate from 1 to 5 how real a 3D brain MRI looks. Each case shows five volumes side by side (the original and four autoencoder reconstructions) in axial, coronal and sagittal views, with synchronized slice scrolling, global brightness/contrast and autosaved ratings. Python/FastAPI, SQLite and a Niivue viewer in TypeScript.',
+      pt: 'Plataforma web, desenvolvida com o LIDS/Unicamp, onde médicos avaliam em condição cega, de 1 a 5, o quão real parece uma RM cerebral 3D. Cada caso mostra cinco volumes lado a lado (o original e quatro reconstruções de autoencoder) nas vistas axial, coronal e sagital, com rolagem de cortes sincronizada, brilho/contraste globais e notas salvas automaticamente. Python/FastAPI, SQLite e visualizador Niivue em TypeScript.',
+    },
+    tags: ['Python', 'FastAPI', 'TypeScript', 'Niivue', 'Medical Imaging'],
+    github: 'https://github.com/Raf-Pimentel/MRI_ValidationApp',
+    iconName: 'Brain',
+    images: ['/projects/mri-validation/cover.gif'],
+    fit: 'contain',
+  },
   {
     id: 'dark-lands-rpg',
     title: { en: 'Dark Lands, Narrative RPG', pt: 'Dark Lands, RPG Narrativo' },
@@ -695,9 +723,9 @@ export default function Home() {
                 <span className="w-1.5 h-1.5 rounded-full bg-navy animate-pulse" />
                 {lang === 'en' ? 'Now' : 'Agora'}
               </span>
-              <span className="text-ink/80">{lang === 'en' ? 'President, Unicamp Entrepreneurship League' : 'Presidente, Liga Empreendedora Unicamp'}</span>
+              <span className="text-ink/80">{lang === 'en' ? 'Google Student Ambassador at Unicamp · Research at LIDS' : 'Google Student Ambassador na Unicamp · Pesquisa no LIDS'}</span>
               <span className="text-muted">·</span>
-              <span className="text-muted">{lang === 'en' ? 'Previously Tivio Capital, NVIDIA · LIDS' : 'Anteriormente Tivio Capital, NVIDIA · LIDS'}</span>
+              <span className="text-muted">{lang === 'en' ? 'Previously President of Unicamp Entrepreneurship League, Tivio Capital' : 'Anteriormente Presidente da Liga Empreendedora Unicamp, Tivio Capital'}</span>
             </div>
 
             <div style={hero(440)} className="flex flex-wrap gap-3 mt-8">
