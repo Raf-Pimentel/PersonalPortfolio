@@ -151,8 +151,8 @@ const EXPERIENCES: Exp[] = [
       pt: 'Modelagem Numérica de Mancais Curtos com ML e IA',
     },
     description: {
-      en: "Ranked 2nd in a Statics class of 71 students, leading the professor to invite me to research journal bearing dynamics. The study involves numerical modeling of hydrodynamic behavior using Reynolds' equations to build a dataset for ML in predicting dynamic coefficients. Presenting at the MECSOL 2026 International Congress at ITA in Oct/26.",
-      pt: 'Classificado em 2º lugar em uma turma de 71 alunos de Estática, o que levou à pesquisa sobre dinâmica de mancais. O estudo envolve modelagem numérica do comportamento hidrodinâmico com equações de Reynolds para dataset de ML. Apresentação no Congresso Internacional MECSOL 2026 no ITA em Out/26.',
+      en: "Ranked 2nd in a Statics class of 71 students, leading the professor to invite me to research journal bearing dynamics. The study involves numerical modeling of hydrodynamic behavior using Reynolds' equations to build a dataset for ML in predicting dynamic coefficients. Presented at the MECSOL 2026 International Congress at ITA (Oct 19–21, 2026).",
+      pt: 'Classificado em 2º lugar em uma turma de 71 alunos de Estática, o que levou à pesquisa sobre dinâmica de mancais. O estudo envolve modelagem numérica do comportamento hidrodinâmico com equações de Reynolds para dataset de ML. Apresentado no Congresso Internacional MECSOL 2026 no ITA (19 a 21 de out/2026).',
     },
     tags: ['Machine Learning', 'Numerical Modeling', 'Python', 'Data Analysis', 'Reynolds Equations'],
     iconName: 'BookOpen',
@@ -323,8 +323,8 @@ const PROJECTS: Project[] = [
     id: 'bearing-ml',
     title: { en: 'ML for Journal Bearing Dynamics', pt: 'ML para Dinâmica de Mancais' },
     description: {
-      en: "Numerical modeling of hydrodynamic behavior in journal short bearings using Reynolds' equations and machine learning to predict dynamic coefficients. Presenting at MECSOL 2026 at ITA.",
-      pt: 'Modelagem numérica do comportamento hidrodinâmico em mancais curtos com equações de Reynolds e ML para prever coeficientes dinâmicos. Apresentação no MECSOL 2026 no ITA.',
+      en: "Numerical modeling of hydrodynamic behavior in journal short bearings using Reynolds' equations and machine learning to predict dynamic coefficients. Presented at MECSOL 2026 at ITA (Oct 19–21, 2026).",
+      pt: 'Modelagem numérica do comportamento hidrodinâmico em mancais curtos com equações de Reynolds e ML para prever coeficientes dinâmicos. Apresentado no MECSOL 2026 no ITA (19 a 21 de out/2026).',
     },
     tags: ['Python', 'Scikit-learn', 'Numerical Modeling', 'NumPy'],
     github: 'https://github.com/Raf-Pimentel/Paper--ML-for-Thrust-Bearings-DynamicCoefficients-',
