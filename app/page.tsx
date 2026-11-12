@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, ReactNode } from 'react'
 import Image from 'next/image'
 import {
   Linkedin, Mail, Download, GraduationCap, Briefcase, Code,
-  Brain, Users, BookOpen, Award, Menu, X, Globe, FileText, Github,
+  Brain, Users, BookOpen, Instagram, Award, Menu, X, Globe, FileText, Github,
   ArrowUpRight, MapPin, Plus,
 } from 'lucide-react'
 
@@ -49,7 +49,7 @@ interface Exp {
   tags: string[]
   iconName: string
   isCurrent: boolean
-  link?: string
+  links?: { kind: 'site' | 'instagram' | 'doi'; href: string }[]
 }
 
 const EXPERIENCES: Exp[] = [
@@ -67,7 +67,7 @@ const EXPERIENCES: Exp[] = [
     tags: ['Venture Capital', 'Startups', 'Entrepreneurship'],
     iconName: 'Briefcase',
     isCurrent: true,
-    link: 'https://nxtp.vc',
+    links: [{ kind: 'site', href: 'https://nxtp.vc' }],
   },
   {
     id: 'google-student-ambassador',
@@ -102,6 +102,7 @@ const EXPERIENCES: Exp[] = [
     tags: ['Quantitative Finance', 'Data Science', 'Python', 'Portfolio Modeling', 'TPA'],
     iconName: 'Briefcase',
     isCurrent: false,
+    links: [{ kind: 'site', href: 'https://www.tivio.com' }],
   },
   {
     id: 'entrepreneurship',
@@ -117,6 +118,7 @@ const EXPERIENCES: Exp[] = [
     tags: ['Leadership', 'Entrepreneurship', 'Startups', 'Team Management'],
     iconName: 'Users',
     isCurrent: false,
+    links: [{ kind: 'instagram', href: 'https://www.instagram.com/liga_empreendedora/' }],
   },
   {
     id: 'west-bohemia',
@@ -136,6 +138,7 @@ const EXPERIENCES: Exp[] = [
     tags: ['Computer Vision', '3D Vision', 'Robotics', 'Python', 'Image Processing'],
     iconName: 'Globe',
     isCurrent: false,
+    links: [{ kind: 'site', href: 'https://uwbrobotics.com' }],
   },
   {
     id: 'nvidia-lids',
@@ -155,6 +158,7 @@ const EXPERIENCES: Exp[] = [
     tags: ['Diffusion Models', 'Deep Learning', 'Medical Imaging', 'PyTorch', 'Computer Vision'],
     iconName: 'Brain',
     isCurrent: true,
+    links: [{ kind: 'site', href: 'https://lids.ic.unicamp.br' }],
   },
   {
     id: 'lamar',
@@ -174,6 +178,7 @@ const EXPERIENCES: Exp[] = [
     tags: ['Machine Learning', 'Numerical Modeling', 'Python', 'Data Analysis', 'Reynolds Equations'],
     iconName: 'BookOpen',
     isCurrent: false,
+    links: [{ kind: 'site', href: 'https://www.lamar.fem.unicamp.br' }],
   },
   {
     id: 'remote-sensing',
@@ -193,6 +198,7 @@ const EXPERIENCES: Exp[] = [
     tags: ['Remote Sensing', 'Environmental Monitoring', 'Unsupervised ML', 'Python', 'Pantanal'],
     iconName: 'FileText',
     isCurrent: false,
+    links: [{ kind: 'doi', href: 'https://doi.org/10.1080/19475705.2026.2660859' }],
   },
   {
     id: 'eracing',
@@ -212,6 +218,7 @@ const EXPERIENCES: Exp[] = [
     tags: ['Python', 'ROS2', 'YOLO', 'LiDAR', 'Computer Vision', 'Linux'],
     iconName: 'Briefcase',
     isCurrent: false,
+    links: [{ kind: 'site', href: 'https://unicamperacing.com.br/site/' }, { kind: 'instagram', href: 'https://www.instagram.com/unicamperacing/' }],
   },
   {
     id: 'harvard',
@@ -705,11 +712,21 @@ export default function Home() {
               <button onClick={() => toggle(exp.id)} className="link-underline text-navy text-xs font-semibold mt-2">
                 {expanded[exp.id] ? (lang === 'en' ? 'Show less' : 'Ver menos') : (lang === 'en' ? 'Read more' : 'Ler mais')}
               </button>
-              {exp.link && (
-                <a href={exp.link} target="_blank" rel="noopener noreferrer"
-                  className="link-underline inline-flex items-center gap-1.5 text-navy text-xs font-semibold mt-2 ml-4 w-fit">
-                  <Globe className="w-3.5 h-3.5" /> {lang === 'en' ? 'Visit website' : 'Visitar site'} <ArrowUpRight className="w-3 h-3" />
-                </a>
+              {exp.links && (
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 mt-3">
+                  {exp.links.map(l => {
+                    const Icon = l.kind === 'instagram' ? Instagram : l.kind === 'doi' ? FileText : Globe
+                    const label = l.kind === 'instagram' ? 'Instagram' : l.kind === 'doi'
+                      ? (lang === 'en' ? 'Read paper (DOI)' : 'Ler artigo (DOI)')
+                      : (lang === 'en' ? 'Visit website' : 'Visitar site')
+                    return (
+                      <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer"
+                        className="link-underline inline-flex items-center gap-1.5 text-navy text-xs font-semibold w-fit">
+                        <Icon className="w-3.5 h-3.5" /> {label} <ArrowUpRight className="w-3 h-3" />
+                      </a>
+                    )
+                  })}
+                </div>
               )}
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {exp.tags.map(t => (
