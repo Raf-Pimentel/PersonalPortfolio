@@ -26,8 +26,8 @@ const NAV_LINKS = [
 ]
 
 const BIO: B = {
-  en: "I'm a Mechatronics Engineering student at Unicamp (Top 2 in class) working at the intersection of AI, engineering and entrepreneurship. I've built autonomous perception systems, generative models for medical imaging and quantitative finance models, and I've published research. I previously presided over the largest entrepreneurship organization at my university.",
-  pt: 'Sou estudante de Engenharia Mecatrônica na Unicamp (Top 2 da turma) trabalhando na interseção entre IA, engenharia e empreendedorismo. Construí sistemas de percepção autônoma, modelos generativos para imagens médicas, modelos de finanças quantitativas e publiquei pesquisa, além de ter presidido a maior organização de empreendedorismo da minha universidade.',
+  en: "I'm a Mechatronics Engineering student at Unicamp (Top 3 out of 57) working with AI, engineering and entrepreneurship. I've built autonomous systems, generative models for medical imaging and quantitative finance models, I've produced some scientific research, and I refounded the largest entrepreneurship organization at my university.",
+  pt: 'Sou estudante de Engenharia Mecatrônica na Unicamp (Top 3 de 57) trabalhando com IA, engenharia e empreendedorismo. Construí sistemas autônomos, modelos generativos para imagens médicas e modelos de finanças quantitativas, produzi pesquisa científica e refundei a maior organização de empreendedorismo da minha universidade.',
 }
 
 const STATS = [
@@ -800,9 +800,9 @@ export default function Home() {
                 <span className="w-1.5 h-1.5 rounded-full bg-navy animate-pulse" />
                 {lang === 'en' ? 'Now' : 'Agora'}
               </span>
-              <span className="text-ink/80">{lang === 'en' ? 'Google Student Ambassador at Unicamp · Research at LIDS' : 'Google Student Ambassador na Unicamp · Pesquisa no LIDS'}</span>
+              <span className="text-ink/80">{lang === 'en' ? 'NXTP Fellow · Researcher at LIDS' : 'NXTP Fellow · Pesquisador no LIDS'}</span>
               <span className="text-muted">·</span>
-              <span className="text-muted">{lang === 'en' ? 'Previously President of Unicamp Entrepreneurship League, Tivio Capital' : 'Anteriormente Presidente da Liga Empreendedora Unicamp, Tivio Capital'}</span>
+              <span className="text-muted">{lang === 'en' ? 'Previously President of Unicamp Entrepreneurship League' : 'Anteriormente Presidente da Liga Empreendedora Unicamp'}</span>
             </div>
 
             <div style={hero(440)} className="flex flex-wrap gap-3 mt-8">
