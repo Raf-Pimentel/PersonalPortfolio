@@ -466,8 +466,8 @@ const HUMAN_LANGS = [
 
 const AWARDS = [
   {
-    title: { en: 'Top 2 in Class, Mechatronics Engineering', pt: 'Top 2 da Turma, Engenharia Mecatrônica' },
-    description: { en: 'GPA 3.6/4.0, ranked Top 2 in the Mechatronics Engineering class at Unicamp (Top 3% of the program).', pt: 'GPA 3,6/4,0, classificado Top 2 da turma de Engenharia Mecatrônica da Unicamp (Top 3% do programa).' },
+    title: { en: 'Top 3 in Class, Mechatronics Engineering', pt: 'Top 3 da Turma, Engenharia Mecatrônica' },
+    description: { en: 'GPA 3.6/4.0, ranked Top 3 out of 57 in the Mechatronics Engineering class at Unicamp (Top 5% of the program).', pt: 'GPA 3,6/4,0, classificado Top 3 de 57 da turma de Engenharia Mecatrônica da Unicamp (Top 5% do programa).' },
     year: '2024–26',
   },
   {
@@ -906,8 +906,8 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 border border-navy/30 text-navy text-xs font-semibold rounded-full">Top 3%</span>
-                <span className="px-3 py-1 bg-navy text-paper text-xs font-semibold rounded-full">{lang === 'en' ? 'Top 2 in class' : 'Top 2 da turma'}</span>
+                <span className="px-3 py-1 border border-navy/30 text-navy text-xs font-semibold rounded-full">Top 5%</span>
+                <span className="px-3 py-1 bg-navy text-paper text-xs font-semibold rounded-full">{lang === 'en' ? 'Top 3 in class' : 'Top 3 da turma'}</span>
               </div>
             </div>
             <div className="flex items-center gap-3 mt-4 text-sm">

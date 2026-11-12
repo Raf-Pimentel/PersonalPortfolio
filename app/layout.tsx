@@ -13,11 +13,11 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   title: 'Rafael Melo, Engineer & Researcher',
   description:
-    'Mechatronics Engineering student at Unicamp (Top 2 in class). Fund of Funds Analyst at Tivio Capital, NVIDIA-supported researcher in Computer Vision & Diffusion Models, and Google Student Ambassador at Unicamp.',
+    'Mechatronics Engineering student at Unicamp (Top 3 out of 57). NXTP Fellow, NVIDIA-supported researcher in Computer Vision & Diffusion Models at LIDS, and former President of the Unicamp Entrepreneurship League.',
   openGraph: {
     title: 'Rafael Melo, Engineer & Researcher',
     description:
-      'Research across Computer Vision, Diffusion Models, Quantitative Finance and Autonomous Systems. Unicamp Mechatronics Engineering, Top 2 in class.',
+      'Research across Computer Vision, Diffusion Models, Quantitative Finance and Autonomous Systems. Unicamp Mechatronics Engineering, Top 3 in class.',
     images: [{ url: '/profile-photo.jpg', width: 800, height: 800, alt: 'Rafael Melo' }],
     type: 'website',
   },
