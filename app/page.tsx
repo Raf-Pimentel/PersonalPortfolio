@@ -31,7 +31,7 @@ const BIO: B = {
 }
 
 const STATS = [
-  { label: { en: 'Students impacted', pt: 'Estudantes impactados' }, value: 3000, suffix: '+' },
+  { label: { en: 'Students impacted', pt: 'Estudantes impactados' }, value: 3500, suffix: '+' },
   { label: { en: 'Research projects', pt: 'Projetos de pesquisa' }, value: 5, suffix: '' },
   { label: { en: 'Papers', pt: 'Artigos' }, value: 2, suffix: '' },
   { label: { en: 'Books published', pt: 'Livros publicados' }, value: 3, suffix: '' },
@@ -111,8 +111,8 @@ const EXPERIENCES: Exp[] = [
     location: 'Campinas, Brazil',
     role: { en: 'President', pt: 'Presidente' },
     description: {
-      en: "Managed a 30-person team developing startups and products to enhance the university's entrepreneurial ecosystem. Impacted 3,000+ students. Interacted with Brazil's most influential entrepreneurs and C-suite executives, receiving individualized mentorship and organizing high-impact events. Partners: Itaú, XP, Nubank, Fundação Estudar, Kaszek Ventures, Atlantico VC.",
-      pt: 'Gerenciou equipe de 30 pessoas desenvolvendo startups e produtos para o ecossistema empreendedor da Unicamp. Impactou mais de 3.000 estudantes. Interagiu com os empreendedores e executivos mais influentes do Brasil, recebendo mentoria individualizada e organizando eventos de alto impacto. Parceiros: Itaú, XP, Nubank, Fundação Estudar, Kaszek Ventures, Atlantico VC.',
+      en: "Managed a 30-person team developing startups and products to enhance the university's entrepreneurial ecosystem. Impacted 3,500+ students. Interacted with Brazil's most influential entrepreneurs and C-suite executives, receiving individualized mentorship and organizing high-impact events. Partners: Itaú, XP, Nubank, Fundação Estudar, Kaszek Ventures, Atlantico VC.",
+      pt: 'Gerenciou equipe de 30 pessoas desenvolvendo startups e produtos para o ecossistema empreendedor da Unicamp. Impactou mais de 3.500 estudantes. Interagiu com os empreendedores e executivos mais influentes do Brasil, recebendo mentoria individualizada e organizando eventos de alto impacto. Parceiros: Itaú, XP, Nubank, Fundação Estudar, Kaszek Ventures, Atlantico VC.',
     },
     tags: ['Leadership', 'Entrepreneurship', 'Startups', 'Team Management'],
     iconName: 'Users',
