@@ -49,9 +49,26 @@ interface Exp {
   tags: string[]
   iconName: string
   isCurrent: boolean
+  link?: string
 }
 
 const EXPERIENCES: Exp[] = [
+  {
+    id: 'nxtp-fellow',
+    type: 'professional',
+    period: { en: 'Nov 2026 – Present', pt: 'Nov 2026 – Presente' },
+    org: 'NXTP',
+    location: 'Brazil',
+    role: { en: 'NXTP Fellow', pt: 'NXTP Fellow' },
+    description: {
+      en: 'Hired on November 1, 2026 as an NXTP Fellow, the second student from a Brazilian university ever selected to take part in the program.',
+      pt: 'Contratado em 1º de novembro de 2026 como NXTP Fellow, sendo o segundo estudante de uma faculdade brasileira a ser selecionado para participar do programa em sua história.',
+    },
+    tags: ['Venture Capital', 'Startups', 'Entrepreneurship'],
+    iconName: 'Briefcase',
+    isCurrent: true,
+    link: 'https://nxtp.vc',
+  },
   {
     id: 'google-student-ambassador',
     type: 'volunteer',
@@ -688,6 +705,12 @@ export default function Home() {
               <button onClick={() => toggle(exp.id)} className="link-underline text-navy text-xs font-semibold mt-2">
                 {expanded[exp.id] ? (lang === 'en' ? 'Show less' : 'Ver menos') : (lang === 'en' ? 'Read more' : 'Ler mais')}
               </button>
+              {exp.link && (
+                <a href={exp.link} target="_blank" rel="noopener noreferrer"
+                  className="link-underline inline-flex items-center gap-1.5 text-navy text-xs font-semibold mt-2 ml-4 w-fit">
+                  <Globe className="w-3.5 h-3.5" /> {lang === 'en' ? 'Visit website' : 'Visitar site'} <ArrowUpRight className="w-3 h-3" />
+                </a>
+              )}
               <div className="flex flex-wrap gap-1.5 mt-3">
                 {exp.tags.map(t => (
                   <span key={t} className="px-2 py-0.5 bg-panel border border-line text-muted rounded-full text-[11px]">{t}</span>
