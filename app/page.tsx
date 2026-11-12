@@ -267,6 +267,19 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
+    id: 'talents',
+    title: { en: 'Talents, Brazilian University Talent Network', pt: 'Talents, Rede de Talentos Universitários' },
+    description: {
+      en: 'Solo-built database to know, track and connect people in a curated network of Brazilian university talents: an owner dashboard, a read-only directory for guests and AI agents that propose records, enrichments and introductions, always with human approval. Features a pure-canvas 3D globe, force-directed network graph, in-browser spherical k-means grouping and full undo history. Privacy by design (LGPD): Supabase with Row Level Security, strict CSP, Edge Functions calling the Anthropic API with no write tools, and 62 Playwright tests. All demo data is fictional.',
+      pt: 'Banco de dados construído sozinho para conhecer, acompanhar e conectar pessoas de uma rede curada de talentos universitários brasileiros: painel do dono, diretório de leitura para convidados e agentes de IA que propõem cadastros, enriquecimentos e conexões, sempre com aprovação humana. Inclui globo 3D em canvas puro, grafo de rede, clusterização k-means esférica no navegador e histórico completo com desfazer. Privacidade por construção (LGPD): Supabase com Row Level Security, CSP estrita, Edge Functions que chamam a API da Anthropic sem ferramentas de escrita e 62 testes Playwright. Todos os dados da demonstração são fictícios.',
+    },
+    tags: ['JavaScript', 'Supabase', 'PostgreSQL', 'Claude API', 'Playwright', 'Data Visualization'],
+    github: 'https://github.com/Raf-Pimentel/sideproject-talentsdemo',
+    iconName: 'Users',
+    images: ['/projects/talents/cover.gif'],
+    fit: 'contain',
+  },
+  {
     id: 'mri-validation-app',
     title: { en: 'MRI ValidationApp, Blind Rating for Physicians', pt: 'MRI ValidationApp, Avaliação Cega para Médicos' },
     description: {
